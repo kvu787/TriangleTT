@@ -1,0 +1,3 @@
+# Stop Git from attempting any end-of-line conversion upon checkin or checkout.
+# https://git-scm.com/docs/gitattributes
+* -text
