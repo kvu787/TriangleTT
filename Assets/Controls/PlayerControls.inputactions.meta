@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 052faaac586de48259a63d0c4782560b
+guid: ea6f8a0439ac4094093025105372d4ea
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,4 +11,4 @@ ScriptedImporter:
   generateWrapperCode: 1
   wrapperCodePath: 
   wrapperClassName: 
-  wrapperCodeNamespace: 
+  wrapperCodeNamespace: DrivingGameV1
