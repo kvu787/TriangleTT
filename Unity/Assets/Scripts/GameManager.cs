@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DrivingGameV1
+namespace DrivingGameV2
 {
     public class GameManager : MonoBehaviour
     {
