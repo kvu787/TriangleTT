@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9043577537103448448}
   m_Layer: 0
   m_Name: Barrier06RedWhite
-  m_TagString: Barrier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,10 @@ PrefabInstance:
     - target: {fileID: 2757423037868475537, guid: 55983fc8c2799c340838c66dca2b7d6d, type: 3}
       propertyPath: m_Name
       value: Barrier02RedWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757423037868475537, guid: 55983fc8c2799c340838c66dca2b7d6d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7766692688536970793, guid: 55983fc8c2799c340838c66dca2b7d6d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -146,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 2798540349537775138, guid: a8b64aaf52e3aac4ab8379f1025542ea, type: 3}
       propertyPath: m_Name
       value: Barrier04RedWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798540349537775138, guid: a8b64aaf52e3aac4ab8379f1025542ea, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

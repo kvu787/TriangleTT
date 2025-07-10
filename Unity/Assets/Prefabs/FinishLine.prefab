@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 815463396177227966}
   m_Layer: 0
   m_Name: FinishLine
-  m_TagString: FinishLine
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +86,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: abbe355e4cd3a664587cbabc98b7e47f, type: 3}
       propertyPath: m_Name
+      value: FinishLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abbe355e4cd3a664587cbabc98b7e47f, type: 3}
+      propertyPath: m_TagString
       value: FinishLine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
