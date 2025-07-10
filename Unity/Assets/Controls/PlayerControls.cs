@@ -110,6 +110,15 @@ namespace DrivingGameV1
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CarReset"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4b0d92a-f984-4da1-8aca-010e881a8adb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,6 +209,28 @@ namespace DrivingGameV1
                     ""action"": ""CarBrake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31e97211-fb76-42b3-9444-252aca504d5e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarReset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bababf4b-fb12-4a7c-81f5-5462f07375f1"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarReset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -210,6 +241,7 @@ namespace DrivingGameV1
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_CarAccel = m_Player.FindAction("CarAccel", throwIfNotFound: true);
             m_Player_CarBrake = m_Player.FindAction("CarBrake", throwIfNotFound: true);
+            m_Player_CarReset = m_Player.FindAction("CarReset", throwIfNotFound: true);
         }
 
         ~@PlayerControls()
@@ -292,6 +324,7 @@ namespace DrivingGameV1
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_CarAccel;
         private readonly InputAction m_Player_CarBrake;
+        private readonly InputAction m_Player_CarReset;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -311,6 +344,10 @@ namespace DrivingGameV1
             /// Provides access to the underlying input action "Player/CarBrake".
             /// </summary>
             public InputAction @CarBrake => m_Wrapper.m_Player_CarBrake;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/CarReset".
+            /// </summary>
+            public InputAction @CarReset => m_Wrapper.m_Player_CarReset;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -343,6 +380,9 @@ namespace DrivingGameV1
                 @CarBrake.started += instance.OnCarBrake;
                 @CarBrake.performed += instance.OnCarBrake;
                 @CarBrake.canceled += instance.OnCarBrake;
+                @CarReset.started += instance.OnCarReset;
+                @CarReset.performed += instance.OnCarReset;
+                @CarReset.canceled += instance.OnCarReset;
             }
 
             /// <summary>
@@ -360,6 +400,9 @@ namespace DrivingGameV1
                 @CarBrake.started -= instance.OnCarBrake;
                 @CarBrake.performed -= instance.OnCarBrake;
                 @CarBrake.canceled -= instance.OnCarBrake;
+                @CarReset.started -= instance.OnCarReset;
+                @CarReset.performed -= instance.OnCarReset;
+                @CarReset.canceled -= instance.OnCarReset;
             }
 
             /// <summary>
@@ -414,6 +457,13 @@ namespace DrivingGameV1
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnCarBrake(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "CarReset" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnCarReset(InputAction.CallbackContext context);
         }
     }
 }

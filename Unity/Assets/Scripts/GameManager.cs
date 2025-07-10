@@ -15,6 +15,9 @@ namespace DrivingGameV1
         private const float carMaxBrake = 200; // meters per sec per sec
         private const float carMaxSpeed = 100; // meters per sec
 
+        private static Vector3 CarInitialPosition;
+        private static Quaternion CarInitialRotation;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -22,13 +25,25 @@ namespace DrivingGameV1
             this.playerControls.Enable();
             this.carState = new CarState { positionMeters = this.CarObject.transform.position, velocity = Vector3.zero };
             this.camera = Camera.main;
+            CarInitialPosition = this.CarObject.transform.position;
+            CarInitialRotation = this.CarObject.transform.rotation;
         }
 
         // Update is called once per frame
         void Update()
         {
-            float deltaTime = Time.deltaTime;
+            this.UpdateCarState(Time.deltaTime);
 
+            if (this.playerControls.Player.CarReset.WasPressedThisFrame())
+            {
+                this.ResetCar();
+            }
+
+            this.WriteCarStateToCarObject();
+        }
+
+        private void UpdateCarState(float deltaTime)
+        {
             float carBrakeInput = playerControls.Player.CarBrake.ReadValue<float>();
             if (carBrakeInput != 0)
             {
@@ -60,10 +75,21 @@ namespace DrivingGameV1
                 }
             }
 
-            // update car state and object
+            // update car state
             this.carState.velocity = Vector3.ClampMagnitude(this.carState.velocity, carMaxSpeed);
             this.carState.positionMeters += this.carState.velocity * deltaTime;
-            CarObject.transform.position = this.carState.positionMeters;
+        }
+
+        private void ResetCar()
+        {
+            this.carState.positionMeters = CarInitialPosition;
+            this.carState.velocity = Vector3.zero;
+            this.CarObject.transform.rotation = CarInitialRotation;
+        }
+
+        private void WriteCarStateToCarObject()
+        {
+            this.CarObject.transform.position = this.carState.positionMeters;
 
             // rotate the car to match the velocity direction
             if (this.carState.velocity != Vector3.zero)
@@ -72,7 +98,6 @@ namespace DrivingGameV1
             }
         }
     }
-
 
     class CarState
     {
