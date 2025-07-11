@@ -15,18 +15,22 @@ namespace DrivingGameV2
         private const float carMaxBrake = 200; // meters per sec per sec
         private const float carMaxSpeed = 100; // meters per sec
 
-        private static Vector3 CarInitialPosition;
-        private static Quaternion CarInitialRotation;
+        private CarState initialCarState;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             this.playerControls = new PlayerControls();
             this.playerControls.Enable();
-            this.carState = new CarState { positionMeters = this.CarObject.transform.position, velocity = Vector3.zero };
+            this.carState =
+                new CarState
+                {
+                    position = this.CarObject.transform.position,
+                    rotation = this.CarObject.transform.rotation,
+                    velocity = Vector3.zero,
+                };
+            this.initialCarState = this.carState;
             this.camera = Camera.main;
-            CarInitialPosition = this.CarObject.transform.position;
-            CarInitialRotation = this.CarObject.transform.rotation;
         }
 
         // Update is called once per frame
@@ -77,31 +81,31 @@ namespace DrivingGameV2
 
             // update car state
             this.carState.velocity = Vector3.ClampMagnitude(this.carState.velocity, carMaxSpeed);
-            this.carState.positionMeters += this.carState.velocity * deltaTime;
+            this.carState.position += this.carState.velocity * deltaTime;
         }
 
         private void ResetCar()
         {
-            this.carState.positionMeters = CarInitialPosition;
-            this.carState.velocity = Vector3.zero;
-            this.CarObject.transform.rotation = CarInitialRotation;
+            this.carState = initialCarState;
         }
 
         private void WriteCarStateToCarObject()
         {
-            this.CarObject.transform.position = this.carState.positionMeters;
+            this.CarObject.transform.position = this.carState.position;
 
-            // rotate the car to match the velocity direction
             if (this.carState.velocity != Vector3.zero)
             {
-                CarObject.transform.eulerAngles = new Vector3(0, Quaternion.LookRotation(this.carState.velocity).eulerAngles.y, 0);
+                // rotate the car to match the velocity direction
+                this.carState.rotation = Quaternion.LookRotation(this.carState.velocity);
             }
+            CarObject.transform.eulerAngles = this.carState.rotation.eulerAngles;
         }
     }
 
-    class CarState
+    struct CarState
     {
-        public Vector3 positionMeters;
+        public Vector3 position;
+        public Quaternion rotation;
         public Vector3 velocity;
     }
 }
