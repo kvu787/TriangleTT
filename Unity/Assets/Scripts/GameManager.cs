@@ -17,6 +17,10 @@ namespace DrivingGameV2
 
         private CarState initialCarState;
 
+        private bool isResetTimerRunning = false;
+        private float resetTimerRemainingTime = 0;
+        private const float ResetTimerDuration = 0.5f;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -36,7 +40,11 @@ namespace DrivingGameV2
         // Update is called once per frame
         void Update()
         {
-            this.UpdateCarState(Time.deltaTime);
+            bool isTimerDone = AdvanceResetTimer();
+            if (isTimerDone)
+            {
+                this.UpdateCarState(Time.deltaTime);
+            }
 
             if (this.playerControls.Player.CarReset.WasPressedThisFrame())
             {
@@ -44,6 +52,27 @@ namespace DrivingGameV2
             }
 
             this.WriteCarStateToCarObject();
+        }
+
+        private bool AdvanceResetTimer()
+        {
+            if (this.isResetTimerRunning)
+            {
+                this.resetTimerRemainingTime -= Time.deltaTime;
+                if (this.resetTimerRemainingTime <= 0)
+                {
+                    this.isResetTimerRunning = false;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void UpdateCarState(float deltaTime)
@@ -86,6 +115,8 @@ namespace DrivingGameV2
 
         private void ResetCar()
         {
+            this.isResetTimerRunning = true;
+            this.resetTimerRemainingTime = ResetTimerDuration;
             this.carState = initialCarState;
         }
 
