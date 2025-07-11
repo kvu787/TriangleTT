@@ -1,9 +1,7 @@
 using UnityEngine;
 
-namespace DrivingGameV2
-{
-    public class GameManager : MonoBehaviour
-    {
+namespace DrivingGameV2 {
+    public class GameManager : MonoBehaviour {
         public GameObject CarObject;
 
         private CarState carState;
@@ -21,13 +19,11 @@ namespace DrivingGameV2
         private const float ResetTimerDuration = 0.5f;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        void Start() {
             this.playerControls = new PlayerControls();
             this.playerControls.Enable();
             this.carState =
-                new CarState
-                {
+                new CarState {
                     position = this.CarObject.transform.position,
                     rotation = this.CarObject.transform.rotation,
                     velocity = Vector3.zero,
@@ -37,68 +33,50 @@ namespace DrivingGameV2
         }
 
         // Update is called once per frame
-        void Update()
-        {
-            bool isTimerDone = AdvanceResetTimer();
-            if (isTimerDone)
-            {
+        void Update() {
+            bool isTimerDone = this.AdvanceResetTimer();
+            if (isTimerDone) {
                 this.UpdateCarState(Time.deltaTime);
             }
 
-            if (this.playerControls.Player.CarReset.WasPressedThisFrame())
-            {
+
+            if (this.playerControls.Player.CarReset.WasPressedThisFrame()) {
                 this.ResetCar();
             }
 
             this.WriteCarStateToCarObject();
         }
 
-        private bool AdvanceResetTimer()
-        {
-            if (this.isResetTimerRunning)
-            {
+        private bool AdvanceResetTimer() {
+            if (this.isResetTimerRunning) {
                 this.resetTimerRemainingTime -= Time.deltaTime;
-                if (this.resetTimerRemainingTime <= 0)
-                {
+                if (this.resetTimerRemainingTime <= 0) {
                     this.isResetTimerRunning = false;
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
-            }
-            else
-            {
+            } else {
                 return true;
             }
         }
 
-        private void UpdateCarState(float deltaTime)
-        {
-            float carBrakeInput = playerControls.Player.CarBrake.ReadValue<float>();
-            if (carBrakeInput != 0)
-            {
-                if (this.carState.velocity != Vector3.zero)
-                {
-                    var opposingVec = (-1 * this.carState.velocity).normalized;
-                    var velocityDelta = opposingVec * carBrakeInput * carMaxBrake * deltaTime;
-                    if (velocityDelta.magnitude >= this.carState.velocity.magnitude)
-                    {
+        private void UpdateCarState(float deltaTime) {
+            float carBrakeInput = this.playerControls.Player.CarBrake.ReadValue<float>();
+            if (carBrakeInput != 0) {
+                if (this.carState.velocity != Vector3.zero) {
+                    Vector3 opposingVec = (-1 * this.carState.velocity).normalized;
+                    Vector3 velocityDelta = opposingVec * carBrakeInput * carMaxBrake * deltaTime;
+                    if (velocityDelta.magnitude >= this.carState.velocity.magnitude) {
                         this.carState.velocity = Vector3.zero;
-                    }
-                    else
-                    {
+                    } else {
                         this.carState.velocity += velocityDelta;
                     }
                 }
-            }
-            else
-            {
-                var carAccelInput = playerControls.Player.CarAccel.ReadValue<Vector2>();
-                if (carAccelInput.magnitude > 0)
-                {
-                    Vector3 velocityDelta = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0)
+            } else {
+                Vector2 carAccelInput = this.playerControls.Player.CarAccel.ReadValue<Vector2>();
+                if (carAccelInput.magnitude > 0) {
+                    Vector3 velocityDelta = Quaternion.Euler(0, this.camera.transform.eulerAngles.y, 0)
                         * new Vector3(x: carAccelInput.x, y: 0, z: carAccelInput.y)
                         * carMaxAccel
                         * deltaTime;
@@ -112,30 +90,25 @@ namespace DrivingGameV2
             this.carState.position += this.carState.velocity * deltaTime;
         }
 
-        private void ResetCar()
-        {
+        private void ResetCar() {
             this.isResetTimerRunning = true;
             this.resetTimerRemainingTime = ResetTimerDuration;
-            this.carState = initialCarState;
+            this.carState = this.initialCarState;
         }
 
-        private void WriteCarStateToCarObject()
-        {
+        private void WriteCarStateToCarObject() {
             this.CarObject.transform.position = this.carState.position;
-
-            if (this.carState.velocity != Vector3.zero)
-            {
+            if (this.carState.velocity != Vector3.zero) {
                 // rotate the car to match the velocity direction
                 this.carState.rotation = Quaternion.LookRotation(this.carState.velocity);
             }
-            CarObject.transform.eulerAngles = this.carState.rotation.eulerAngles;
+            this.CarObject.transform.eulerAngles = this.carState.rotation.eulerAngles;
         }
-    }
 
-    struct CarState
-    {
-        public Vector3 position;
-        public Quaternion rotation;
-        public Vector3 velocity;
+        private struct CarState {
+            internal Vector3 position;
+            internal Quaternion rotation;
+            internal Vector3 velocity;
+        }
     }
 }
