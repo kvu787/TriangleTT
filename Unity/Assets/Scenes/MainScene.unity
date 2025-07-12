@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 136905023}
   - component: {fileID: 136905022}
   - component: {fileID: 136905021}
+  - component: {fileID: 136905025}
   m_Layer: 0
   m_Name: CheckpointLine1
   m_TagString: Untagged
@@ -705,6 +706,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1773652240}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &136905025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136905020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 100, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &154854923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1016,6 +1038,7 @@ GameObject:
   - component: {fileID: 210328433}
   - component: {fileID: 210328432}
   - component: {fileID: 210328431}
+  - component: {fileID: 210328435}
   m_Layer: 0
   m_Name: CheckpointLine2
   m_TagString: Untagged
@@ -1112,6 +1135,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1773652240}
   m_LocalEulerAnglesHint: {x: 0, y: -35.904, z: 0}
+--- !u!65 &210328435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210328430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 100, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &227000850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2033,6 +2077,7 @@ GameObject:
   - component: {fileID: 357973688}
   - component: {fileID: 357973687}
   - component: {fileID: 357973686}
+  - component: {fileID: 357973690}
   m_Layer: 0
   m_Name: CheckpointLine3
   m_TagString: Untagged
@@ -2129,6 +2174,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1773652240}
   m_LocalEulerAnglesHint: {x: 0, y: -53.944, z: 0}
+--- !u!65 &357973690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357973685}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 100, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &367246847
 GameObject:
   m_ObjectHideFlags: 0
