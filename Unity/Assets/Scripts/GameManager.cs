@@ -24,7 +24,7 @@ namespace DrivingGameV2 {
 
         private bool isResetTimerRunning = false;
         private float resetTimerRemainingTime = 0;
-        private const float ResetTimerDuration = 1f;
+        private const float ResetTimerDuration = 0.6f;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
