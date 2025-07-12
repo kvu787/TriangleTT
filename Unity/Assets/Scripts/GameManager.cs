@@ -1,8 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace DrivingGameV2 {
+    public enum Tags {
+        Barrier,
+    }
+
     public class GameManager : MonoBehaviour {
         public GameObject CarObject;
+        public Collider CarCollider;
 
         private CarState carState;
         private new Camera camera;
@@ -34,34 +42,56 @@ namespace DrivingGameV2 {
 
         // Update is called once per frame
         void Update() {
-            bool isTimerDone = this.AdvanceResetTimer();
-            if (isTimerDone) {
-                this.UpdateCarState(Time.deltaTime);
-            }
-
-
             if (this.playerControls.Player.CarReset.WasPressedThisFrame()) {
                 this.ResetCar();
+            } else if (this.HasCarCollidedWithBarrier()) {
+                this.ResetCar();
+            } else if (this.CarInputTimeout()) {
+                return;
+            } else {
+                this.ProcessCarInputAndPhysics(Time.deltaTime);
             }
 
             this.WriteCarStateToCarObject();
         }
 
-        private bool AdvanceResetTimer() {
+        private bool HasCarCollidedWithBarrier() {
+            List<Collider> barrierColliders = GameObject.FindGameObjectsWithTag(Tags.Barrier.ToString()).Select(x => x.GetComponent<Collider>()).ToList();
+            Assert.IsFalse(barrierColliders.Any(x => x is null));
+            foreach (Collider barrierCollider in barrierColliders) {
+                // Here I use Physics.ComputePenetration because I was having issues with the more commonly used Collider.OnTriggerEnter.
+                // When the car collided with a barrier right next to its reset position and the reset timeout was too low, OnTriggerEnter
+                // would fail to trigger because the collisions happened too frequently (within 10 ms or less) and collision checking was tied
+                // to the 50 Hz FixedUpdate. This meant OnTriggerEnter wouldn't always trigger. Increasing the FixedUpdate frequency resolved this,
+                // but I think it's more straightforward to do inline collision checking with ComputePenetration.
+                bool isOverlapping =
+                    Physics.ComputePenetration(
+                        this.CarCollider, this.CarCollider.transform.position, this.CarCollider.transform.rotation,
+                        barrierCollider, barrierCollider.transform.position, barrierCollider.transform.rotation,
+                        out _, out _);
+                if (isOverlapping) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool CarInputTimeout() {
             if (this.isResetTimerRunning) {
                 this.resetTimerRemainingTime -= Time.deltaTime;
                 if (this.resetTimerRemainingTime <= 0) {
                     this.isResetTimerRunning = false;
-                    return true;
-                } else {
                     return false;
+                } else {
+                    return true;
                 }
             } else {
-                return true;
+                return false;
             }
         }
 
-        private void UpdateCarState(float deltaTime) {
+        private void ProcessCarInputAndPhysics(float deltaTime) {
             float carBrakeInput = this.playerControls.Player.CarBrake.ReadValue<float>();
             if (carBrakeInput != 0) {
                 if (this.carState.velocity != Vector3.zero) {

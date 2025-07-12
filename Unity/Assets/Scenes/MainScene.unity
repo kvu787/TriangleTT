@@ -551,6 +551,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8873110333923088026, guid: eb17fb2db74833b428d0438ee31d3097, type: 3}
   m_PrefabInstance: {fileID: 154854923}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &155374203 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3948501937798665400, guid: 0b0edb72419df2f43a6123e616ec9e8c, type: 3}
+  m_PrefabInstance: {fileID: 1285343206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &159858343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,6 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CarObject: {fileID: 804166896}
+  CarCollider: {fileID: 155374203}
 --- !u!1001 &227000850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4204,7 +4210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150700776833017658, guid: 0b0edb72419df2f43a6123e616ec9e8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.72
+      value: 81.3
       objectReference: {fileID: 0}
     - target: {fileID: 9150700776833017658, guid: 0b0edb72419df2f43a6123e616ec9e8c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4212,7 +4218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150700776833017658, guid: 0b0edb72419df2f43a6123e616ec9e8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132.65
+      value: 130.3
       objectReference: {fileID: 0}
     - target: {fileID: 9150700776833017658, guid: 0b0edb72419df2f43a6123e616ec9e8c, type: 3}
       propertyPath: m_LocalRotation.w
