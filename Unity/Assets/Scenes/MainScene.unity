@@ -3964,7 +3964,7 @@ GameObject:
   - component: {fileID: 971820804}
   - component: {fileID: 971820803}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: StraightRoad1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4067,9 +4067,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1454685274}
   - {fileID: 971820805}
   - {fileID: 1570821586}
+  - {fileID: 1454685274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1053078917
@@ -5499,7 +5499,7 @@ GameObject:
   - component: {fileID: 1454685273}
   - component: {fileID: 1454685272}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: StraightRoad3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6075,7 +6075,7 @@ GameObject:
   - component: {fileID: 1570821585}
   - component: {fileID: 1570821584}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: StraightRoad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
