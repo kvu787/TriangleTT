@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 
 namespace DrivingGameV2 {
     public enum Tags {
@@ -11,6 +12,8 @@ namespace DrivingGameV2 {
     public class GameManager : MonoBehaviour {
         public GameObject CarObject;
         public Collider CarCollider;
+        public int MaxQueuedFrames;
+        public bool EnableVSyncControl;
 
         private CarState carState;
         private Camera mainCamera;
@@ -25,6 +28,11 @@ namespace DrivingGameV2 {
         private bool isResetTimerRunning = false;
         private float resetTimerRemainingTime = 0;
         private const float ResetTimerDuration = 0.6f;
+
+        void Awake() {
+            QualitySettings.maxQueuedFrames = this.MaxQueuedFrames;
+            Debug.Log($"QualitySettings.maxQueuedFrames = {QualitySettings.maxQueuedFrames}");
+        }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
@@ -42,6 +50,10 @@ namespace DrivingGameV2 {
 
         // Update is called once per frame
         void Update() {
+            if (this.EnableVSyncControl) {
+                this.HandleVSyncControl();
+            }
+
             if (this.playerControls.Player.CarReset.WasPressedThisFrame()) {
                 this.ResetCar();
             } else if (this.HasCarCollidedWithBarrier()) {
@@ -53,6 +65,24 @@ namespace DrivingGameV2 {
             }
 
             this.WriteCarStateToCarObject();
+        }
+
+        private void HandleVSyncControl() {
+            if (Keyboard.current.digit0Key.isPressed) {
+                QualitySettings.vSyncCount = 0;
+            }
+            if (Keyboard.current.digit1Key.isPressed) {
+                QualitySettings.vSyncCount = 1;
+            }
+            if (Keyboard.current.digit2Key.isPressed) {
+                QualitySettings.vSyncCount = 2;
+            }
+            if (Keyboard.current.digit3Key.isPressed) {
+                QualitySettings.vSyncCount = 3;
+            }
+            if (Keyboard.current.digit4Key.isPressed) {
+                QualitySettings.vSyncCount = 4;
+            }
         }
 
         private bool HasCarCollidedWithBarrier() {
