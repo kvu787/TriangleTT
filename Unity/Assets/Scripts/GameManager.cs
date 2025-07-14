@@ -13,7 +13,7 @@ namespace DrivingGameV2 {
         public Collider CarCollider;
 
         private CarState carState;
-        private new Camera camera;
+        private Camera mainCamera;
         private PlayerControls playerControls;
 
         private const float carMaxAccel = 100; // meters per sec per sec
@@ -37,7 +37,7 @@ namespace DrivingGameV2 {
                     velocity = Vector3.zero,
                 };
             this.initialCarState = this.carState;
-            this.camera = Camera.main;
+            this.mainCamera = Camera.main;
         }
 
         // Update is called once per frame
@@ -106,7 +106,7 @@ namespace DrivingGameV2 {
             } else {
                 Vector2 carAccelInput = this.playerControls.Player.CarAccel.ReadValue<Vector2>();
                 if (carAccelInput.magnitude > 0) {
-                    Vector3 velocityDelta = Quaternion.Euler(0, this.camera.transform.eulerAngles.y, 0)
+                    Vector3 velocityDelta = Quaternion.Euler(0, this.mainCamera.transform.eulerAngles.y, 0)
                         * new Vector3(x: carAccelInput.x, y: 0, z: carAccelInput.y)
                         * carMaxAccel
                         * deltaTime;
