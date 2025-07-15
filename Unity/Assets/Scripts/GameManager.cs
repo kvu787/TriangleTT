@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 namespace DrivingGameV2 {
     public enum Tags {
@@ -25,9 +28,8 @@ namespace DrivingGameV2 {
 
         private CarState initialCarState;
 
-        private bool isResetTimerRunning = false;
-        private float resetTimerRemainingTime = 0;
-        private const float ResetTimerDuration = 0.6f;
+        private readonly TimeSpan ResetTimerDuration = TimeSpan.FromSeconds(0.6f);
+        private Stopwatch resetCarStopwatch;
 
         void Awake() {
             QualitySettings.maxQueuedFrames = this.MaxQueuedFrames;
@@ -46,6 +48,7 @@ namespace DrivingGameV2 {
                 };
             this.initialCarState = this.carState;
             this.mainCamera = Camera.main;
+            this.resetCarStopwatch = new Stopwatch();
         }
 
         // Update is called once per frame
@@ -109,10 +112,9 @@ namespace DrivingGameV2 {
         }
 
         private bool CarInputTimeout() {
-            if (this.isResetTimerRunning) {
-                this.resetTimerRemainingTime -= Time.deltaTime;
-                if (this.resetTimerRemainingTime <= 0) {
-                    this.isResetTimerRunning = false;
+            if (this.resetCarStopwatch.IsRunning) {
+                if (this.resetCarStopwatch.Elapsed > this.ResetTimerDuration) {
+                    this.resetCarStopwatch.Reset();
                     return false;
                 } else {
                     return true;
@@ -152,8 +154,8 @@ namespace DrivingGameV2 {
         }
 
         private void ResetCar() {
-            this.isResetTimerRunning = true;
-            this.resetTimerRemainingTime = ResetTimerDuration;
+            this.resetCarStopwatch.Reset();
+            this.resetCarStopwatch.Start();
             this.carState = this.initialCarState;
         }
 
