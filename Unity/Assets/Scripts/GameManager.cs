@@ -17,6 +17,10 @@ namespace DrivingGameV2 {
         public Collider CarCollider;
         public int MaxQueuedFrames;
         public bool EnableVSyncControl;
+        public Collider FinishLineCollider;
+        public Collider CheckpointCollider1;
+        public Collider CheckpointCollider2;
+        public Collider CheckpointCollider3;
 
         private CarState carState;
         private Camera mainCamera;
@@ -30,6 +34,8 @@ namespace DrivingGameV2 {
 
         private readonly TimeSpan ResetTimerDuration = TimeSpan.FromSeconds(0.6f);
         private Stopwatch resetCarStopwatch;
+
+        private Checkpointer checkpointer;
 
         void Awake() {
             QualitySettings.maxQueuedFrames = this.MaxQueuedFrames;
@@ -49,6 +55,7 @@ namespace DrivingGameV2 {
             this.initialCarState = this.carState;
             this.mainCamera = Camera.main;
             this.resetCarStopwatch = new Stopwatch();
+            this.checkpointer = new Checkpointer(this.CarCollider, new List<Collider>() { this.FinishLineCollider, this.CheckpointCollider1, this.CheckpointCollider2, this.CheckpointCollider3 });
         }
 
         // Update is called once per frame
@@ -56,6 +63,8 @@ namespace DrivingGameV2 {
             if (this.EnableVSyncControl) {
                 this.HandleVSyncControl();
             }
+
+            this.checkpointer.Update();
 
             if (this.playerControls.Player.CarReset.WasPressedThisFrame()) {
                 this.ResetCar();
@@ -88,7 +97,7 @@ namespace DrivingGameV2 {
             }
         }
 
-        private static bool HasCollided(Collider a, Collider b) {
+        public static bool HasCollided(Collider a, Collider b) {
             // I use Physics.ComputePenetration because I was having issues with the more commonly used Collider.OnTriggerEnter.
             // When the car collided with a barrier right next to its reset position and the reset timeout was too low, OnTriggerEnter
             // would fail to trigger because the collisions happened too frequently (within 10 ms or less) and collision checking was tied
@@ -154,6 +163,7 @@ namespace DrivingGameV2 {
         }
 
         private void ResetCar() {
+            this.checkpointer.Reset();
             this.resetCarStopwatch.Reset();
             this.resetCarStopwatch.Start();
             this.carState = this.initialCarState;

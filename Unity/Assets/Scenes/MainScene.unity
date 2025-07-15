@@ -1028,6 +1028,10 @@ MonoBehaviour:
   CarCollider: {fileID: 155374203}
   MaxQueuedFrames: 0
   EnableVSyncControl: 0
+  FinishLineCollider: {fileID: 1967333340}
+  CheckpointCollider1: {fileID: 210328431}
+  CheckpointCollider2: {fileID: 136905021}
+  CheckpointCollider3: {fileID: 357973686}
 --- !u!1 &210328430
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,6 +7450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c69e1b1bc1194349a6c0782aa7d49ed, type: 3}
+--- !u!65 &1967333340 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5232009418096491441, guid: 3c69e1b1bc1194349a6c0782aa7d49ed, type: 3}
+  m_PrefabInstance: {fileID: 1967333339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1980731265
 PrefabInstance:
   m_ObjectHideFlags: 0
