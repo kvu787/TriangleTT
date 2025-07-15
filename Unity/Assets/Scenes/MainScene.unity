@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 136905021}
   - component: {fileID: 136905025}
   m_Layer: 0
-  m_Name: CheckpointLine1
+  m_Name: CheckpointLine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1026,6 +1026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CarObject: {fileID: 804166896}
   CarCollider: {fileID: 155374203}
+  MaxQueuedFrames: 0
+  EnableVSyncControl: 0
 --- !u!1 &210328430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1042,7 @@ GameObject:
   - component: {fileID: 210328431}
   - component: {fileID: 210328435}
   m_Layer: 0
-  m_Name: CheckpointLine2
+  m_Name: CheckpointLine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6554,8 +6556,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 136905024}
   - {fileID: 210328434}
+  - {fileID: 136905024}
   - {fileID: 357973689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
