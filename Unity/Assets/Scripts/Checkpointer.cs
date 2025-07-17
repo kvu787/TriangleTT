@@ -1,9 +1,9 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace DrivingGameV2 {
     public class Checkpointer {
@@ -11,6 +11,7 @@ namespace DrivingGameV2 {
         private readonly IList<Collider> checkpoints;
         private readonly Stopwatch lapTimer;
         private List<TimeSpan> cumulativeTimes;
+        private int lapsCompleted;
 
         private int nextCheckpointIndex;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
@@ -21,6 +22,7 @@ namespace DrivingGameV2 {
             this.checkpoints = checkpoints;
             this.lapTimer = new Stopwatch();
             this.cumulativeTimes = new List<TimeSpan>();
+            this.lapsCompleted = 0;
             this.nextCheckpointIndex = 0;
         }
 
@@ -29,10 +31,19 @@ namespace DrivingGameV2 {
         }
 
         private void OutputLapTimings() {
-            for (int i = 0; i < this.checkpoints.Count - 1; i++) {
-                Debug.Log($"Section {i + 1} cumulative time: {this.cumulativeTimes[i]}");
+            string lapTimesFilePath = UI.LapTimesFilePath;
+            using StreamWriter writer = File.AppendText(lapTimesFilePath);
+            writer.WriteLine($"Lap {this.lapsCompleted}");
+            writer.WriteLine($"Total lap time: {this.cumulativeTimes.Last()}");
+            TimeSpan prevCumulativeTime = TimeSpan.Zero;
+            for (int i = 0; i < this.checkpoints.Count; i++) {
+                writer.WriteLine($"Section {i + 1} time: {this.cumulativeTimes[i] - prevCumulativeTime}");
+                prevCumulativeTime = this.cumulativeTimes[i];
             }
-            Debug.Log($"Total lap time: {this.cumulativeTimes.Last()}");
+            for (int i = 0; i < this.checkpoints.Count; i++) {
+                writer.WriteLine($"Section {i + 1} cumulative time: {this.cumulativeTimes[i]}");
+            }
+            writer.WriteLine();
         }
 
         public void Reset() {
@@ -47,6 +58,7 @@ namespace DrivingGameV2 {
                     if (this.cumulativeTimes.Count == 0) {
                         this.lapTimer.Start();
                     } else {
+                        this.lapsCompleted++;
                         this.cumulativeTimes.Add(this.lapTimer.Elapsed);
                         this.OutputLapTimings();
                         this.cumulativeTimes = new List<TimeSpan>();
