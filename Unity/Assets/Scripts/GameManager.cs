@@ -138,10 +138,16 @@ namespace DrivingGameV2 {
             if (carBrakeInput == 0) {
                 Vector2 carAccelInput = this.playerControls.Player.CarAccel.ReadValue<Vector2>();
                 if (carAccelInput.magnitude > 0) {
-                    Vector3 velocityDelta = Quaternion.Euler(0, this.mainCamera.transform.eulerAngles.y, 0)
-                        * new Vector3(x: carAccelInput.x, y: 0, z: carAccelInput.y)
-                        * carMaxAccel
-                        * deltaTime;
+                    // Map stick input onto XZ plane
+                    Vector3 a = new(x: carAccelInput.x, y: 0, z: carAccelInput.y);
+                    // Orient with respect to the car by adjusting for the camera rotation
+                    Vector3 b = Quaternion.Euler(0, this.mainCamera.transform.eulerAngles.y, 0) * a;
+                    // Get the acceleration by scaling to max accel
+                    Vector3 c = carMaxAccel * b;
+                    // Convert acceleration to change in velocity
+                    Vector3 d = deltaTime * c;
+                    // The result is the change in velocity for this frame
+                    Vector3 velocityDelta = d;
                     velocityDelta.y = 0;
                     this.carState.velocity += velocityDelta;
                 }
