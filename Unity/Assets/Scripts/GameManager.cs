@@ -135,17 +135,7 @@ namespace DrivingGameV2 {
 
         private void ProcessCarInputAndPhysics(float deltaTime) {
             float carBrakeInput = this.playerControls.Player.CarBrake.ReadValue<float>();
-            if (carBrakeInput != 0) {
-                if (this.carState.velocity != Vector3.zero) {
-                    Vector3 opposingVec = (-1 * this.carState.velocity).normalized;
-                    Vector3 velocityDelta = opposingVec * carBrakeInput * carMaxBrake * deltaTime;
-                    if (velocityDelta.magnitude >= this.carState.velocity.magnitude) {
-                        this.carState.velocity = Vector3.zero;
-                    } else {
-                        this.carState.velocity += velocityDelta;
-                    }
-                }
-            } else {
+            if (carBrakeInput == 0) {
                 Vector2 carAccelInput = this.playerControls.Player.CarAccel.ReadValue<Vector2>();
                 if (carAccelInput.magnitude > 0) {
                     Vector3 velocityDelta = Quaternion.Euler(0, this.mainCamera.transform.eulerAngles.y, 0)
@@ -153,6 +143,14 @@ namespace DrivingGameV2 {
                         * carMaxAccel
                         * deltaTime;
                     velocityDelta.y = 0;
+                    this.carState.velocity += velocityDelta;
+                }
+            } else if (this.carState.velocity != Vector3.zero) {
+                Vector3 opposingVec = (-1 * this.carState.velocity).normalized;
+                Vector3 velocityDelta = opposingVec * carBrakeInput * carMaxBrake * deltaTime;
+                if (velocityDelta.magnitude >= this.carState.velocity.magnitude) {
+                    this.carState.velocity = Vector3.zero;
+                } else {
                     this.carState.velocity += velocityDelta;
                 }
             }
