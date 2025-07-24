@@ -48,9 +48,9 @@ namespace DrivingGameV2 {
             this.playerControls.Enable();
             this.carState =
                 new CarState {
-                    position = this.CarObject.transform.position,
-                    rotation = this.CarObject.transform.rotation,
-                    velocity = Vector3.zero,
+                    Position = this.CarObject.transform.position,
+                    Rotation = this.CarObject.transform.rotation,
+                    Velocity = Vector3.zero,
                 };
             this.initialCarState = this.carState;
             this.mainCamera = Camera.main;
@@ -149,21 +149,26 @@ namespace DrivingGameV2 {
                     // The result is the change in velocity for this frame
                     Vector3 velocityDelta = d;
                     velocityDelta.y = 0;
-                    this.carState.velocity += velocityDelta;
+                    this.carState.Velocity += velocityDelta;
                 }
-            } else if (this.carState.velocity != Vector3.zero) {
-                Vector3 opposingVec = (-1 * this.carState.velocity).normalized;
+            } else if (this.carState.Velocity != Vector3.zero) {
+                Vector3 opposingVec = (-1 * this.carState.Velocity).normalized;
                 Vector3 velocityDelta = opposingVec * carBrakeInput * carMaxBrake * deltaTime;
-                if (velocityDelta.magnitude >= this.carState.velocity.magnitude) {
-                    this.carState.velocity = Vector3.zero;
+                if (velocityDelta.magnitude >= this.carState.Velocity.magnitude) {
+                    this.carState.Velocity = Vector3.zero;
                 } else {
-                    this.carState.velocity += velocityDelta;
+                    this.carState.Velocity += velocityDelta;
                 }
             }
 
             // update car state
-            this.carState.velocity = Vector3.ClampMagnitude(this.carState.velocity, carMaxSpeed);
-            this.carState.position += this.carState.velocity * deltaTime;
+            this.carState.Velocity = Vector3.ClampMagnitude(this.carState.Velocity, carMaxSpeed);
+            this.carState.Position += this.carState.Velocity * deltaTime;
+
+            // rotate the car to match the velocity direction
+            if (this.carState.Velocity != Vector3.zero) {
+                this.carState.Rotation = Quaternion.LookRotation(this.carState.Velocity);
+            }
         }
 
         private void ResetCar() {
@@ -174,18 +179,8 @@ namespace DrivingGameV2 {
         }
 
         private void WriteCarStateToCarObject() {
-            this.CarObject.transform.position = this.carState.position;
-            if (this.carState.velocity != Vector3.zero) {
-                // rotate the car to match the velocity direction
-                this.carState.rotation = Quaternion.LookRotation(this.carState.velocity);
-            }
-            this.CarObject.transform.eulerAngles = this.carState.rotation.eulerAngles;
-        }
-
-        private struct CarState {
-            internal Vector3 position;
-            internal Quaternion rotation;
-            internal Vector3 velocity;
+            this.CarObject.transform.position = this.carState.Position;
+            this.CarObject.transform.eulerAngles = this.carState.Rotation.eulerAngles;
         }
     }
 }
