@@ -119,6 +119,24 @@ namespace DrivingGameV2
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CarSwitchNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bceee81-6796-4ed5-977d-48511e9651c3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CarSwitchPrev"",
+                    ""type"": ""Button"",
+                    ""id"": ""419b7beb-db43-4d2d-b769-174bb01dbe50"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -308,6 +326,50 @@ namespace DrivingGameV2
                     ""action"": ""CarReset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef7d8f56-f27e-4816-be74-fd26276237cf"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarSwitchNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19e46b0d-f6c7-47ab-ba90-dddb179d05d9"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarSwitchNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b64905a9-d8c6-45cb-9445-b6f95ac2f42e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarSwitchPrev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dbd2187-63a7-40bb-a5b3-1eebf5852ae4"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarSwitchPrev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -319,6 +381,8 @@ namespace DrivingGameV2
             m_Player_CarAccel = m_Player.FindAction("CarAccel", throwIfNotFound: true);
             m_Player_CarBrake = m_Player.FindAction("CarBrake", throwIfNotFound: true);
             m_Player_CarReset = m_Player.FindAction("CarReset", throwIfNotFound: true);
+            m_Player_CarSwitchNext = m_Player.FindAction("CarSwitchNext", throwIfNotFound: true);
+            m_Player_CarSwitchPrev = m_Player.FindAction("CarSwitchPrev", throwIfNotFound: true);
         }
 
         ~@PlayerControls()
@@ -402,6 +466,8 @@ namespace DrivingGameV2
         private readonly InputAction m_Player_CarAccel;
         private readonly InputAction m_Player_CarBrake;
         private readonly InputAction m_Player_CarReset;
+        private readonly InputAction m_Player_CarSwitchNext;
+        private readonly InputAction m_Player_CarSwitchPrev;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -425,6 +491,14 @@ namespace DrivingGameV2
             /// Provides access to the underlying input action "Player/CarReset".
             /// </summary>
             public InputAction @CarReset => m_Wrapper.m_Player_CarReset;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/CarSwitchNext".
+            /// </summary>
+            public InputAction @CarSwitchNext => m_Wrapper.m_Player_CarSwitchNext;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/CarSwitchPrev".
+            /// </summary>
+            public InputAction @CarSwitchPrev => m_Wrapper.m_Player_CarSwitchPrev;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -460,6 +534,12 @@ namespace DrivingGameV2
                 @CarReset.started += instance.OnCarReset;
                 @CarReset.performed += instance.OnCarReset;
                 @CarReset.canceled += instance.OnCarReset;
+                @CarSwitchNext.started += instance.OnCarSwitchNext;
+                @CarSwitchNext.performed += instance.OnCarSwitchNext;
+                @CarSwitchNext.canceled += instance.OnCarSwitchNext;
+                @CarSwitchPrev.started += instance.OnCarSwitchPrev;
+                @CarSwitchPrev.performed += instance.OnCarSwitchPrev;
+                @CarSwitchPrev.canceled += instance.OnCarSwitchPrev;
             }
 
             /// <summary>
@@ -480,6 +560,12 @@ namespace DrivingGameV2
                 @CarReset.started -= instance.OnCarReset;
                 @CarReset.performed -= instance.OnCarReset;
                 @CarReset.canceled -= instance.OnCarReset;
+                @CarSwitchNext.started -= instance.OnCarSwitchNext;
+                @CarSwitchNext.performed -= instance.OnCarSwitchNext;
+                @CarSwitchNext.canceled -= instance.OnCarSwitchNext;
+                @CarSwitchPrev.started -= instance.OnCarSwitchPrev;
+                @CarSwitchPrev.performed -= instance.OnCarSwitchPrev;
+                @CarSwitchPrev.canceled -= instance.OnCarSwitchPrev;
             }
 
             /// <summary>
@@ -541,6 +627,20 @@ namespace DrivingGameV2
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnCarReset(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "CarSwitchNext" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnCarSwitchNext(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "CarSwitchPrev" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnCarSwitchPrev(InputAction.CallbackContext context);
         }
     }
 }
