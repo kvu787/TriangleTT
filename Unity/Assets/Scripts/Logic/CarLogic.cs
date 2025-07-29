@@ -45,7 +45,7 @@ namespace DrivingGameV2 {
                     // Convert acceleration to change in velocity
                     Vector3 f = Time.deltaTime * e;
 
-                    // Just to be safe: zero out the y coordinate
+                    // Just to be safe, zero out the y coordinate
                     f.y = 0;
 
                     // The result is the change in velocity for this frame
