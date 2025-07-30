@@ -14,10 +14,10 @@ namespace DrivingGameV2 {
         void OnEnable() {
             string debugLogFilePath = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
             string text =
-                $"Debug log:\n" +
+                $"DEBUG LOG:\n" +
                 $"{debugLogFilePath}\n" +
                 $"\n" +
-                $"Lap times:\n" +
+                $"LAP TIMES:\n" +
                 $"{LapTimesFilePath}";
             this.GetComponent<UIDocument>().rootVisualElement.Q<Label>("topLeftText").text = text;
         }
