@@ -3,13 +3,12 @@ using UnityEngine.Assertions;
 
 namespace DrivingGameV2 {
     public class Car {
-        public GameObject GameObject;
-        public Collider Collider;
-        public Dynamic Dynamic;
+        public readonly GameObject GameObject;
+        public readonly Collider Collider;
+        public readonly Dynamic Dynamic;
 
         public Car(GameObject gameObject, Dynamic dynamic) {
             Assert.IsNotNull(gameObject);
-            Assert.IsNotNull(dynamic);
 
             // The input gameObject is supposed to be a fixed decoration.
             // The actual gameObject that drives around is a copy.
