@@ -152,6 +152,17 @@ namespace DrivingGameV2
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""7f1c3b8d-901e-451c-a8cc-0516d155c0d7"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarAccel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""07345337-6ef6-4f08-b20d-0cf0e541232b"",
                     ""path"": ""2DVector"",
@@ -219,8 +230,8 @@ namespace DrivingGameV2
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9728cd2b-6f19-4219-97c7-a61c34567206"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""192339e4-aee8-49c5-9de3-41197c3e07f3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -230,8 +241,30 @@ namespace DrivingGameV2
                 },
                 {
                     ""name"": """",
-                    ""id"": ""192339e4-aee8-49c5-9de3-41197c3e07f3"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""8d533fe8-d526-4c8e-a6c6-128b26f478ba"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarBrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47de9ee4-84fb-4917-85e1-c84461b639dc"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CarBrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9728cd2b-6f19-4219-97c7-a61c34567206"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
