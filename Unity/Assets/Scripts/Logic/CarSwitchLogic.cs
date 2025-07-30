@@ -16,7 +16,7 @@ namespace DrivingGameV2 {
 
             Cars = new List<Car> {
                 new(
-                    gameObject: SceneObjects.GreenCarObject,
+                    gameObjectName: "PerchaGreen",
                     dynamic: new(
                         velocityLimiter: 75,
                         accelerationMap: new(
@@ -25,7 +25,7 @@ namespace DrivingGameV2 {
                             left: 100,
                             right: 100))),
                 new(
-                    gameObject: SceneObjects.BlueCarObject,
+                    gameObjectName: "PerchaBlue",
                     dynamic: new(
                         velocityLimiter: 150,
                         accelerationMap: new(
@@ -34,7 +34,7 @@ namespace DrivingGameV2 {
                             left: 100,
                             right: 100))),
                 new(
-                    gameObject: SceneObjects.RedCarObject,
+                    gameObjectName: "PerchaRed",
                     dynamic: new(
                         velocityLimiter: -1,
                         accelerationMap: new(
@@ -43,7 +43,7 @@ namespace DrivingGameV2 {
                             left: 150,
                             right: 150))),
                 new(
-                    gameObject: SceneObjects.YellowCarObject,
+                    gameObjectName: "PerchaYellow",
                     dynamic: new(
                         velocityLimiter: -1,
                         accelerationMap: new(
@@ -52,7 +52,7 @@ namespace DrivingGameV2 {
                             left: 500,
                             right: 500))),
                 new(
-                    gameObject: SceneObjects.CyanCarObject,
+                    gameObjectName: "PerchaCyan",
                     dynamic: new(
                         velocityLimiter: -1,
                         accelerationMap: new(
@@ -61,7 +61,7 @@ namespace DrivingGameV2 {
                             left: 400,
                             right: 400))),
                 new(
-                    gameObject: SceneObjects.MagentaCarObject,
+                    gameObjectName: "PerchaMagenta",
                     dynamic: new(
                         velocityLimiter: -1,
                         accelerationMap: new(

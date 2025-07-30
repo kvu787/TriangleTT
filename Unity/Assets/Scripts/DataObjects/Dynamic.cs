@@ -1,7 +1,10 @@
+using System;
+
 namespace DrivingGameV2 {
-    public readonly struct Dynamic {
-        public readonly float VelocityLimiter;
-        public readonly AccelerationMap AccelerationMap; // Accel = left stick, Brake = right bumper
+    [Serializable]
+    public struct Dynamic {
+        public float VelocityLimiter;
+        public AccelerationMap AccelerationMap; // Accel = left stick, Brake = right bumper
 
         //public object DriftMatrix;              // X 
         //public object BoostCore;                // Y

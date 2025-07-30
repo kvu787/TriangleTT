@@ -1,12 +1,12 @@
-
+using System;
 
 namespace DrivingGameV2 {
-
-    public readonly struct AccelerationMap {
-        public readonly float Forward;
-        public readonly float Reverse;
-        public readonly float Left;
-        public readonly float Right;
+    [Serializable]
+    public struct AccelerationMap {
+        public float Forward;
+        public float Reverse;
+        public float Left;
+        public float Right;
 
         public AccelerationMap(float forward, float reverse, float left, float right) {
             this.Forward = forward;
