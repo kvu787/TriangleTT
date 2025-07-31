@@ -17,7 +17,7 @@ namespace DrivingGameV2 {
         public static Transform CameraAnglePivot;
         public Transform _CameraAnglePivot;
 
-        private void Awake() {
+        void Awake() {
             FinishLineCollider = this._FinishLineCollider;
             CheckpointCollider1 = this._CheckpointCollider1;
             CheckpointCollider2 = this._CheckpointCollider2;
