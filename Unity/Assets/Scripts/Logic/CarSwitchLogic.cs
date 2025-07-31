@@ -1,77 +1,42 @@
 using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace DrivingGameV2 {
     public static class CarSwitchLogic {
-        public static Car CurrentCar => Cars[CarIndex];
-
-        // The init value of this determines the starting car.
-        // I want the blue car to be default, so I set it to 1 here because I assume
-        // that the blue car is at index=1.
-        private static int CarIndex = 1;
+        public static Car CurrentCar => Cars[CurrentCarIndex];
+        private static int CurrentCarIndex = 1;
 
         private static List<Car> Cars;
+
+        private const string defaultGarageFileName = "DefaultGarage.json";
+        private const string overrideGarageFileName = "OverrideGarage.json";
 
         public static void InitCars() {
             SceneObjects.PlaceholderCarObject.SetActive(false);
 
-            Cars = new List<Car> {
-                new(
-                    gameObjectName: "PerchaGreen",
-                    dynamic: new(
-                        velocityLimiter: 75,
-                        accelerationMap: new(
-                            forward: 100,
-                            reverse: 200,
-                            left: 100,
-                            right: 100))),
-                new(
-                    gameObjectName: "PerchaBlue",
-                    dynamic: new(
-                        velocityLimiter: 150,
-                        accelerationMap: new(
-                            forward: 100,
-                            reverse: 200,
-                            left: 100,
-                            right: 100))),
-                new(
-                    gameObjectName: "PerchaRed",
-                    dynamic: new(
-                        velocityLimiter: -1,
-                        accelerationMap: new(
-                            forward: 300,
-                            reverse: 450,
-                            left: 150,
-                            right: 150))),
-                new(
-                    gameObjectName: "PerchaYellow",
-                    dynamic: new(
-                        velocityLimiter: -1,
-                        accelerationMap: new(
-                            forward: 500,
-                            reverse: 1000,
-                            left: 500,
-                            right: 500))),
-                new(
-                    gameObjectName: "PerchaCyan",
-                    dynamic: new(
-                        velocityLimiter: -1,
-                        accelerationMap: new(
-                            forward: 100,
-                            reverse: 200,
-                            left: 400,
-                            right: 400))),
-                new(
-                    gameObjectName: "PerchaMagenta",
-                    dynamic: new(
-                        velocityLimiter: -1,
-                        accelerationMap: new(
-                            forward: 1000,
-                            reverse: 2000,
-                            left: 100,
-                            right: 100))),
-            };
+            string garageFilePath = ValidateAndGetGarageFilePath();
+            string garageFileContents = File.ReadAllText(garageFilePath);
+            Garage garage = Garage.CreateFromJson(garageFileContents);
+            CurrentCarIndex = garage.StartCarIndex;
+            Cars = garage.Cars;
 
             CurrentCar.GameObject.SetActive(true);
+        }
+
+        private static string ValidateAndGetGarageFilePath() {
+            string defaultGarageFilePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), defaultGarageFileName);
+            Assert.IsTrue(File.Exists(defaultGarageFilePath), $"Default garage does not exist at {defaultGarageFilePath}");
+
+            string overrideGarageFilePath = Path.Combine(Application.persistentDataPath.Replace('/', '\\'), overrideGarageFileName);
+            if (File.Exists(overrideGarageFilePath)) {
+                Debug.Log($"Reading from override garage at {overrideGarageFilePath}");
+                return overrideGarageFilePath;
+            } else {
+                Debug.Log($"Override not found, so reading from default at {defaultGarageFilePath}");
+                return defaultGarageFilePath;
+            }
         }
 
         public static bool ProcessCarSwitch() {
@@ -80,13 +45,13 @@ namespace DrivingGameV2 {
             }
             CurrentCar.GameObject.SetActive(false);
             if (Input.NextCarEvent) {
-                CarIndex += 1;
-                CarIndex %= Cars.Count;
+                CurrentCarIndex += 1;
+                CurrentCarIndex %= Cars.Count;
             } else if (Input.PrevCarEvent) {
-                if (CarIndex == 0) {
-                    CarIndex = Cars.Count - 1;
+                if (CurrentCarIndex == 0) {
+                    CurrentCarIndex = Cars.Count - 1;
                 } else {
-                    CarIndex -= 1;
+                    CurrentCarIndex -= 1;
                 }
             }
             CurrentCar.GameObject.SetActive(true);

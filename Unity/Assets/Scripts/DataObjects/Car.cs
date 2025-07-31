@@ -16,13 +16,7 @@ namespace DrivingGameV2 {
         [NonSerialized]
         public Collider Collider;
 
-        public Car(string gameObjectName, Dynamic dynamic) {
-            this.gameObjectName = gameObjectName;
-            this.InitUnityObjects();
-            this.Dynamic = dynamic;
-        }
-
-        private void InitUnityObjects() {
+        public void InitAfterCreateFromJson() {
             Assert.IsTrue(!string.IsNullOrEmpty(this.gameObjectName));
             GameObject gameObject = GameObject.Find(this.gameObjectName);
             Assert.IsNotNull(gameObject);
@@ -35,12 +29,6 @@ namespace DrivingGameV2 {
 
             this.Collider = this.GameObject.GetComponentInChildren<Collider>();
             Assert.IsNotNull(this.Collider);
-        }
-
-        public static Car CreateFromJson(string jsonString) {
-            Car car = JsonUtility.FromJson<Car>(jsonString);
-            car.InitUnityObjects();
-            return car;
         }
     }
 }
