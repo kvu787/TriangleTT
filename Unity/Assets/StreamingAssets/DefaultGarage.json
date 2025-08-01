@@ -6,8 +6,8 @@
             "Dynamic": {
                 "VelocityLimiter": 75.0,
                 "AccelerationMap": {
-                    "Forward": 100.0,
-                    "Reverse": 200.0,
+                    "Forward": 150.0,
+                    "Reverse": 300.0,
                     "Left": 100.0,
                     "Right": 100.0
                 }
@@ -16,7 +16,7 @@
         {
             "gameObjectName": "PerchaBlue",
             "Dynamic": {
-                "VelocityLimiter": 150.0,
+                "VelocityLimiter": -1.0,
                 "AccelerationMap": {
                     "Forward": 100.0,
                     "Reverse": 200.0,
@@ -31,9 +31,9 @@
                 "VelocityLimiter": -1.0,
                 "AccelerationMap": {
                     "Forward": 300.0,
-                    "Reverse": 450.0,
-                    "Left": 150.0,
-                    "Right": 150.0
+                    "Reverse": 600.0,
+                    "Left": 200.0,
+                    "Right": 200.0
                 }
             }
         },
