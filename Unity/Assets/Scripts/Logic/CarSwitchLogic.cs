@@ -31,10 +31,10 @@ namespace DrivingGameV2 {
 
             string overrideGarageFilePath = Path.Combine(Application.persistentDataPath.Replace('/', '\\'), overrideGarageFileName);
             if (File.Exists(overrideGarageFilePath)) {
-                Debug.Log($"Reading from override garage at {overrideGarageFilePath}");
+                Debug.Log($"Reading from override garage at '{overrideGarageFilePath}'");
                 return overrideGarageFilePath;
             } else {
-                Debug.Log($"Override not found, so reading from default at {defaultGarageFilePath}");
+                Debug.Log($"Override garage not found at '{overrideGarageFilePath}', so reading from default garage at '{defaultGarageFilePath}'");
                 return defaultGarageFilePath;
             }
         }
