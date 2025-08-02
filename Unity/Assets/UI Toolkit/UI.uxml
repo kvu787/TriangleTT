@@ -1,3 +1,0 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label text="&lt;text will be added at runtime&gt;" selectable="true" focusable="true" name="topLeftText" style="top: 0; left: 10px; -unity-font-style: bold; font-size: 14px; background-color: rgba(0, 0, 0, 0); width: 1000px; white-space: pre-wrap; color: rgb(0, 0, 0); height: auto;" />
-</ui:UXML>

@@ -27,8 +27,7 @@ namespace DrivingGameV2 {
         }
 
         private static void OutputLapTimings() {
-            string lapTimesFilePath = UI.LapTimesFilePath;
-            using StreamWriter writer = File.AppendText(lapTimesFilePath);
+            using StreamWriter writer = File.AppendText(GameLoop.LapTimesFilePath);
             writer.WriteLine($"Lap {lapsCompleted}");
             writer.WriteLine($"Total lap time: {cumulativeTimes.Last()}");
             TimeSpan prevCumulativeTime = TimeSpan.Zero;
