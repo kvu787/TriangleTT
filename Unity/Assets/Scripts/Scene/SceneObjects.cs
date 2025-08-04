@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,10 @@ namespace DrivingGameV2 {
         public GameObject _Menu;
         public static Button CloseMenuButton;
         public Button _CloseMenuButton;
+        public static TMP_InputField LapTimesFilePathInputField;
+        public TMP_InputField _LapTimesFilePathInputField;
+        public static TMP_InputField DebugLogFilePathInputField;
+        public TMP_InputField _DebugLogFilePathInputField;
 
         void Awake() {
             FinishLineCollider = this._FinishLineCollider;
@@ -38,6 +43,8 @@ namespace DrivingGameV2 {
             OpenMenuButton = this._OpenMenuButton;
             Menu = this._Menu;
             CloseMenuButton = this._CloseMenuButton;
+            LapTimesFilePathInputField = this._LapTimesFilePathInputField;
+            DebugLogFilePathInputField = this._DebugLogFilePathInputField;
         }
     }
 }

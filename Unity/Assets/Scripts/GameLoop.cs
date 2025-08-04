@@ -1,15 +1,7 @@
-using System;
 using UnityEngine;
 
 namespace DrivingGameV2 {
     public class GameLoop : MonoBehaviour {
-        public static string LapTimesFilePath;
-
-        void Awake() {
-            string prefix = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-fff");
-            LapTimesFilePath = $"{Application.persistentDataPath}/{prefix} LapTimes.txt".Replace("/", "\\");
-        }
-
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
             Input.Init();
