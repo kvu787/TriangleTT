@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DrivingGameV2 {
     public class SceneObjects : MonoBehaviour {
@@ -17,6 +18,13 @@ namespace DrivingGameV2 {
         public static Transform CameraAnglePivot;
         public Transform _CameraAnglePivot;
 
+        public static Button OpenMenuButton;
+        public Button _OpenMenuButton;
+        public static GameObject Menu;
+        public GameObject _Menu;
+        public static Button CloseMenuButton;
+        public Button _CloseMenuButton;
+
         void Awake() {
             FinishLineCollider = this._FinishLineCollider;
             CheckpointCollider1 = this._CheckpointCollider1;
@@ -26,6 +34,10 @@ namespace DrivingGameV2 {
             PlaceholderCarObject = this._PlaceholderCarObject;
 
             CameraAnglePivot = this._CameraAnglePivot;
+
+            OpenMenuButton = this._OpenMenuButton;
+            Menu = this._Menu;
+            CloseMenuButton = this._CloseMenuButton;
         }
     }
 }
