@@ -29,6 +29,11 @@ namespace DrivingGameV2 {
         public TMP_InputField _LapTimesFilePathInputField;
         public static TMP_InputField DebugLogFilePathInputField;
         public TMP_InputField _DebugLogFilePathInputField;
+        public static Toggle ShadowToggle;
+        public Toggle _ShadowToggle;
+
+        public static Light Sunlight;
+        public Light _Sunlight;
 
         void Awake() {
             FinishLineCollider = this._FinishLineCollider;
@@ -45,6 +50,9 @@ namespace DrivingGameV2 {
             CloseMenuButton = this._CloseMenuButton;
             LapTimesFilePathInputField = this._LapTimesFilePathInputField;
             DebugLogFilePathInputField = this._DebugLogFilePathInputField;
+            ShadowToggle = this._ShadowToggle;
+
+            Sunlight = this._Sunlight;
         }
     }
 }
