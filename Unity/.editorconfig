@@ -39,3 +39,6 @@ dotnet_diagnostic.IDE0270.severity = none
 
 # Disable: Remove unused private member
 dotnet_diagnostic.IDE0051.severity = none
+
+# Disable: Convert to conditional expression
+dotnet_diagnostic.IDE0045.severity = none
