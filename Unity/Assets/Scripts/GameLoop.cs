@@ -7,6 +7,7 @@ namespace DrivingGameV2 {
             Input.Init();
             VSyncLogic.Init();
             MaxQueuedFramesLogic.Init();
+            CheckpointLogic.Init();
             CarSwitchLogic.InitCars();
             CarLogic.Init();
             CarResetLogic.Init();

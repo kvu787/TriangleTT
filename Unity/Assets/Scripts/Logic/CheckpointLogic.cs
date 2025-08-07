@@ -7,6 +7,8 @@ using UnityEngine;
 
 namespace DrivingGameV2 {
     public static class CheckpointLogic {
+        public static string LapTimesFilePath;
+
         private static readonly List<Collider> checkpoints = new() {
             SceneObjects.FinishLineCollider,
             SceneObjects.CheckpointCollider1,
@@ -22,12 +24,16 @@ namespace DrivingGameV2 {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
         private static Collider nextCheckpoint => checkpoints[nextCheckpointIndex];
 
+        public static void Init() {
+            LapTimesFilePath = $"{Application.persistentDataPath}/{DateTime.Now:yyyy-MM-dd_HH-mm-ss-fff} LapTimes.txt".Replace("/", "\\");
+        }
+
         private static void AdvanceCheckpoint() {
             nextCheckpointIndex = (nextCheckpointIndex + 1) % checkpoints.Count;
         }
 
         private static void OutputLapTimings() {
-            using StreamWriter writer = File.AppendText(MenuLogic.LapTimesFilePath);
+            using StreamWriter writer = File.AppendText(LapTimesFilePath);
             writer.WriteLine($"Lap {lapsCompleted}");
             writer.WriteLine($"Total lap time: {cumulativeTimes.Last()}");
             TimeSpan prevCumulativeTime = TimeSpan.Zero;
