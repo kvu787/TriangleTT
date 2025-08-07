@@ -10,7 +10,7 @@ namespace DrivingGameV2 {
             CarSwitchLogic.InitCars();
             CarLogic.Init();
             CarResetLogic.Init();
-            MenuLogic.Init();
+            //MenuLogic.Init();
         }
 
         // Update is called once per frame
