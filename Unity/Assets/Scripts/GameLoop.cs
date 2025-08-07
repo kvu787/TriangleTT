@@ -4,6 +4,8 @@ namespace DrivingGameV2 {
     public class GameLoop : MonoBehaviour {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
+            Screen.SetResolution(SceneSettings.StartingResolution.x, SceneSettings.StartingResolution.y, FullScreenMode.Windowed);
+
             Input.Init();
             VSyncLogic.Init();
             MaxQueuedFramesLogic.Init();

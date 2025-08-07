@@ -7672,6 +7672,7 @@ MonoBehaviour:
   _MaxQueuedFrames: 0
   _VSyncCount: 1
   _EnableRuntimeVSyncControl: 0
+  _StartingResolution: {x: 1280, y: 720}
 --- !u!1001 &1861598782
 PrefabInstance:
   m_ObjectHideFlags: 0
