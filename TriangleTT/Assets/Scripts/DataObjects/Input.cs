@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class Input {
         private static PlayerControls.PlayerActions PlayerActions;
 

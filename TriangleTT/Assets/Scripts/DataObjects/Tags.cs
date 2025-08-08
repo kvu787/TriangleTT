@@ -1,4 +1,4 @@
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public enum Tags {
         Barrier,
     }

@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class CarSwitchLogic {
         public static Car CurrentCar => Cars[CurrentCarIndex];
         private static int CurrentCarIndex = 1;

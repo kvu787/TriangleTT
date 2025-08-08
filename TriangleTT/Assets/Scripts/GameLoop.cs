@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public class GameLoop : MonoBehaviour {
         private bool isInitialized = false;
         private readonly Stopwatch adjustAspectRatioTimer = new();

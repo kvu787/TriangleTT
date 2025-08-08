@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public struct CarState {
         public Vector3 Position;
         public Quaternion Rotation;

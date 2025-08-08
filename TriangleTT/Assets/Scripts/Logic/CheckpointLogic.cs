@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class CheckpointLogic {
         public static string LapTimesFilePath;
 

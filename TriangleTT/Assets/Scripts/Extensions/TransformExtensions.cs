@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class TransformExtensions {
         public static void SetFrom(this Transform self, Transform other) {
             Assert.IsNotNull(self);

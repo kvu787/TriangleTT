@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public class SceneSettings : MonoBehaviour {
         public static int MaxQueuedFrames;
         public int _MaxQueuedFrames;

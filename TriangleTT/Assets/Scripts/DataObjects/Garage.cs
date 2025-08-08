@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     [Serializable]
     public class Garage {
         public int StartCarIndex;

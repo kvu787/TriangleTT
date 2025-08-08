@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     [Serializable]
     public class Car {
         [SerializeField]

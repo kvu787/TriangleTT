@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class VSyncLogic {
         public static void Init() {
             QualitySettings.vSyncCount = SceneSettings.VSyncCount;

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class CollisionLogic {
 
         public static bool HasCollided(Collider a, Collider b) {

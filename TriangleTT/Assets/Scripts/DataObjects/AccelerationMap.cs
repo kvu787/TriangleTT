@@ -1,6 +1,6 @@
 using System;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     [Serializable]
     public struct AccelerationMap {
         public float Forward;

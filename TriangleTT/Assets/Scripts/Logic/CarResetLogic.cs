@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class CarResetLogic {
         public static bool IsTimedOut = false;
         public static CarState InitialCarState;

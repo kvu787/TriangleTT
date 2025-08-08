@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public class CarLogic {
         public static CarState CarState;
 

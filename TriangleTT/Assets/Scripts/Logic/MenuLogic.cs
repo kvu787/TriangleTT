@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public static class MenuLogic {
         public static bool IsMenuOpened = false;
 

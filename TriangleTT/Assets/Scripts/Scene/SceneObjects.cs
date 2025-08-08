@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DrivingGameV2 {
+namespace TriangleTT {
     public class SceneObjects : MonoBehaviour {
         public static Collider FinishLineCollider;
         public Collider _FinishLineCollider;
