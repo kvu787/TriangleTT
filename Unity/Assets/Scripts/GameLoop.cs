@@ -1,9 +1,13 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 namespace DrivingGameV2 {
     public class GameLoop : MonoBehaviour {
         private bool isInitialized = false;
+        private readonly Stopwatch adjustAspectRatioTimer = new();
 
         void Awake() {
             Debug.Log($"GameLoop Awake on {this.gameObject.name} in scene {this.gameObject.scene.name}");
@@ -27,8 +31,6 @@ namespace DrivingGameV2 {
                 sceneObjectsScriptInstance.Init();
             }
 
-            Screen.SetResolution(SceneSettings.StartingResolution.x, SceneSettings.StartingResolution.y, FullScreenMode.Windowed);
-
             Input.Init();
             VSyncLogic.Init();
             MaxQueuedFramesLogic.Init();
@@ -37,6 +39,23 @@ namespace DrivingGameV2 {
             CarLogic.Init();
             CarResetLogic.Init();
             MenuLogic.Init();
+        }
+
+        private void ForceAspectRatio() {
+            if (this.adjustAspectRatioTimer.IsRunning) {
+                if (this.adjustAspectRatioTimer.Elapsed > TimeSpan.FromSeconds(1)) {
+                    int roundedWidth = Screen.width / 16 * 16;
+                    int multiplier = roundedWidth / 16;
+                    Screen.SetResolution(16 * multiplier, 9 * multiplier, FullScreenMode.Windowed);
+                    this.adjustAspectRatioTimer.Reset();
+                }
+            } else {
+                float targetRatio = 16f / 9f;
+                float currentRatio = (float)Screen.width / Screen.height;
+                if (!Mathf.Approximately(currentRatio, targetRatio)) {
+                    this.adjustAspectRatioTimer.Start();
+                }
+            }
         }
 
         // Update is called once per frame
@@ -55,6 +74,8 @@ namespace DrivingGameV2 {
                 this.Init();
                 this.isInitialized = true;
             }
+
+            this.ForceAspectRatio();
 
             VSyncLogic.UpdateVSyncSetting();
             CheckpointLogic.UpdateLapTimes();
