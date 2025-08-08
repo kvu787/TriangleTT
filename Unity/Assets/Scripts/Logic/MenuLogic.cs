@@ -7,8 +7,8 @@ namespace DrivingGameV2 {
         public static void Init() {
             SceneObjects.Menu.SetActive(false);
 
-            //SceneObjects.LapTimesFilePathInputField.text = CheckpointLogic.LapTimesFilePath;
-            //SceneObjects.DebugLogFilePathInputField.text = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
+            SceneObjects.LapTimesFilePathInputField.text = CheckpointLogic.LapTimesFilePath;
+            SceneObjects.DebugLogFilePathInputField.text = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
 
             SceneObjects.OpenMenuButton.onClick.AddListener(() => {
                 SceneObjects.Menu.SetActive(true);
