@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DrivingGameV2 {
     public class GameLoop : MonoBehaviour {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
+            if (!SceneManager.GetSceneByName("UIScene").isLoaded) {
+                SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+            }
+
             Screen.SetResolution(SceneSettings.StartingResolution.x, SceneSettings.StartingResolution.y, FullScreenMode.Windowed);
 
             Input.Init();
