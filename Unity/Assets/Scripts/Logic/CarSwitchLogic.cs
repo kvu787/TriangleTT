@@ -13,7 +13,7 @@ namespace DrivingGameV2 {
         private const string defaultGarageFileName = "DefaultGarage.json";
         private const string overrideGarageFileName = "OverrideGarage.json";
 
-        public static void InitCars() {
+        public static void Init() {
             SceneObjects.PlaceholderCarObject.SetActive(false);
 
             string garageFilePath = ValidateAndGetGarageFilePath();
