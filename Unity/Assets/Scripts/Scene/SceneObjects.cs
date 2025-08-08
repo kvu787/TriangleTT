@@ -35,24 +35,24 @@ namespace DrivingGameV2 {
         public static Light Sunlight;
         public Light _Sunlight;
 
-        void Awake() {
-            FinishLineCollider = this._FinishLineCollider;
-            CheckpointCollider1 = this._CheckpointCollider1;
-            CheckpointCollider2 = this._CheckpointCollider2;
-            CheckpointCollider3 = this._CheckpointCollider3;
+        public void Init() {
+            UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
+            UnityNullExtensions.AssignIfNull(ref CheckpointCollider1, this._CheckpointCollider1);
+            UnityNullExtensions.AssignIfNull(ref CheckpointCollider2, this._CheckpointCollider2);
+            UnityNullExtensions.AssignIfNull(ref CheckpointCollider3, this._CheckpointCollider3);
 
-            PlaceholderCarObject = this._PlaceholderCarObject;
+            UnityNullExtensions.AssignIfNull(ref PlaceholderCarObject, this._PlaceholderCarObject);
 
-            CameraAnglePivot = this._CameraAnglePivot;
+            UnityNullExtensions.AssignIfNull(ref CameraAnglePivot, this._CameraAnglePivot);
 
-            OpenMenuButton = this._OpenMenuButton;
-            Menu = this._Menu;
-            CloseMenuButton = this._CloseMenuButton;
-            LapTimesFilePathInputField = this._LapTimesFilePathInputField;
-            DebugLogFilePathInputField = this._DebugLogFilePathInputField;
-            ShadowToggle = this._ShadowToggle;
+            UnityNullExtensions.AssignIfNull(ref OpenMenuButton, this._OpenMenuButton);
+            UnityNullExtensions.AssignIfNull(ref Menu, this._Menu);
+            UnityNullExtensions.AssignIfNull(ref CloseMenuButton, this._CloseMenuButton);
+            UnityNullExtensions.AssignIfNull(ref LapTimesFilePathInputField, this._LapTimesFilePathInputField);
+            UnityNullExtensions.AssignIfNull(ref DebugLogFilePathInputField, this._DebugLogFilePathInputField);
+            UnityNullExtensions.AssignIfNull(ref ShadowToggle, this._ShadowToggle);
 
-            Sunlight = this._Sunlight;
+            UnityNullExtensions.AssignIfNull(ref Sunlight, this._Sunlight);
         }
     }
 }
