@@ -25,7 +25,13 @@ namespace DrivingGameV2 {
         private static Collider nextCheckpoint => checkpoints[nextCheckpointIndex];
 
         public static void Init() {
-            LapTimesFilePath = $"{Application.persistentDataPath}/{DateTime.Now:yyyy-MM-dd_HH-mm-ss-fff} LapTimes.txt".Replace("/", "\\");
+            DateTimeOffset currentTime = DateTimeOffset.Now;
+            LapTimesFilePath = $"{Application.persistentDataPath}/{currentTime:yyyy-MM-dd_HH-mm-ss-fff} LapTimes.txt".Replace("/", "\\");
+            using StreamWriter writer = File.AppendText(LapTimesFilePath);
+            writer.WriteLine("Lap times");
+            writer.WriteLine();
+            writer.WriteLine($"Created at {currentTime:yyyy-MM-dd HH:mm:ss}, {currentTime:zzz}, {TimeZoneInfo.Local}");
+            writer.WriteLine();
         }
 
         private static void AdvanceCheckpoint() {
