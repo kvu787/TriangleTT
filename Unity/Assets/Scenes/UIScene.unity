@@ -351,13 +351,13 @@ MonoBehaviour:
   _CheckpointCollider3: {fileID: 0}
   _PlaceholderCarObject: {fileID: 0}
   _CameraAnglePivot: {fileID: 0}
-  _Sunlight: {fileID: 0}
   _OpenMenuButton: {fileID: 1917140491}
   _Menu: {fileID: 1650131306}
   _CloseMenuButton: {fileID: 591538281}
   _LapTimesFilePathInputField: {fileID: 0}
   _DebugLogFilePathInputField: {fileID: 0}
   _ShadowToggle: {fileID: 0}
+  _Sunlight: {fileID: 0}
 --- !u!1001 &591538279
 PrefabInstance:
   m_ObjectHideFlags: 0
