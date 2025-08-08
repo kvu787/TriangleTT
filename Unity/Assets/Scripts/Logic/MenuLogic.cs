@@ -19,8 +19,8 @@ namespace DrivingGameV2 {
                 IsMenuOpened = false;
             });
 
-            //SetShadowMode(SceneObjects.ShadowToggle.isOn);
-            //SceneObjects.ShadowToggle.onValueChanged.AddListener((enable) => SetShadowMode(enable));
+            SetShadowMode(SceneObjects.ShadowToggle.isOn);
+            SceneObjects.ShadowToggle.onValueChanged.AddListener((enable) => SetShadowMode(enable));
         }
 
         private static void SetShadowMode(bool isEnabled) {
