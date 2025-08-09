@@ -21,7 +21,6 @@ namespace TriangleTT {
         private static int LapsCompleted = 0;
 
         private static int NextCheckpointIndex = 0;
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
         private static Collider NextCheckpoint => Checkpoints[NextCheckpointIndex];
 
         public static void Init() {
