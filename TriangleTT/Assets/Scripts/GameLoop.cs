@@ -1,13 +1,9 @@
-using System;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = UnityEngine.Debug;
 
 namespace TriangleTT {
     public class GameLoop : MonoBehaviour {
         private bool isInitialized = false;
-        private readonly Stopwatch adjustAspectRatioTimer = new();
 
         void Awake() {
             Debug.Log($"GameLoop Awake on {this.gameObject.name} in scene {this.gameObject.scene.name}");
@@ -41,23 +37,6 @@ namespace TriangleTT {
             MenuLogic.Init();
         }
 
-        private void ForceAspectRatio() {
-            if (this.adjustAspectRatioTimer.IsRunning) {
-                if (this.adjustAspectRatioTimer.Elapsed > TimeSpan.FromSeconds(1)) {
-                    int roundedWidth = Screen.width / 16 * 16;
-                    int multiplier = roundedWidth / 16;
-                    Screen.SetResolution(16 * multiplier, 9 * multiplier, FullScreenMode.Windowed);
-                    this.adjustAspectRatioTimer.Reset();
-                }
-            } else {
-                float targetRatio = 16f / 9f;
-                float currentRatio = (float)Screen.width / Screen.height;
-                if (!Mathf.Approximately(currentRatio, targetRatio)) {
-                    this.adjustAspectRatioTimer.Start();
-                }
-            }
-        }
-
         // Update is called once per frame
         void Update() {
             // TODO
@@ -75,8 +54,7 @@ namespace TriangleTT {
                 this.isInitialized = true;
             }
 
-            this.ForceAspectRatio();
-
+            AspectRatioEnforcer.Update();
             FpsLogic.Update();
             VSyncLogic.UpdateVSyncSetting();
             CheckpointLogic.UpdateLapTimes();
