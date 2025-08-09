@@ -60,18 +60,21 @@ namespace TriangleTT {
             Checkpointer.UpdateLapTimes();
             CarResetter.UpdateTimeout();
 
-            if (CarSwitcher.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollidedWithBarrier()) {
-                CarResetter.ResetCar();
-                CarLogic.WriteCarStateToCarObject();
-                return;
-            }
-
             if (CarResetter.IsTimedOut) {
-                return;
-            }
+                if (CarSwitcher.ProcessCarSwitch()) {
+                    CarResetter.ResetCar();
+                    CarLogic.WriteCarStateToCarObject();
+                }
+            } else {
+                if (CarSwitcher.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollidedWithBarrier()) {
+                    CarResetter.ResetCar();
+                    CarLogic.WriteCarStateToCarObject();
+                    return;
+                }
 
-            CarLogic.ProcessCarInputAndPhysics();
-            CarLogic.WriteCarStateToCarObject();
+                CarLogic.ProcessCarInputAndPhysics();
+                CarLogic.WriteCarStateToCarObject();
+            }
         }
     }
 }
