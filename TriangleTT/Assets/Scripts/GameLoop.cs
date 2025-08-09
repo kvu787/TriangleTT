@@ -42,7 +42,7 @@ namespace TriangleTT {
             // TODO
             // Unity loads scenes asynchronously.
             // Theoretically, loading a scene can take a long time.
-            // So, I should add a loading indicator if you wait for a scene to load.
+            // So, I should add a loading indicator or screen.
             if (!SceneManager.GetSceneByName("UIScene").isLoaded) {
                 Debug.Log("Update: UIScene not loaded yet");
                 return;
