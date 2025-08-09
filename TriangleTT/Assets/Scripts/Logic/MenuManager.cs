@@ -21,6 +21,9 @@ namespace TriangleTT {
 
             SetShadowMode(SceneObjects.ShadowToggle.isOn);
             SceneObjects.ShadowToggle.onValueChanged.AddListener((enable) => SetShadowMode(enable));
+
+            QualitySettings.vSyncCount = SceneObjects.VSyncDropdown.value;
+            SceneObjects.VSyncDropdown.onValueChanged.AddListener((index) => QualitySettings.vSyncCount = index);
         }
 
         private static void SetShadowMode(bool isEnabled) {

@@ -7,6 +7,8 @@ namespace TriangleTT {
 
         void Awake() {
             Debug.Log($"GameLoop Awake on {this.gameObject.name} in scene {this.gameObject.scene.name}");
+            QualitySettings.maxQueuedFrames = 0;
+            QualitySettings.vSyncCount = 1;
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,8 +30,6 @@ namespace TriangleTT {
             }
 
             Input.Init();
-            VSyncManager.Init();
-            MaxQueuedFramesManager.Init();
             Checkpointer.Init();
             CarSwitcher.Init();
             CarLogic.Init();
@@ -56,7 +56,6 @@ namespace TriangleTT {
 
             AspectRatioEnforcer.Update();
             FpsDisplayManager.Update();
-            VSyncManager.UpdateVSyncSetting();
             Checkpointer.UpdateLapTimes();
             CarResetter.UpdateTimeout();
 

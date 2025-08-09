@@ -33,6 +33,8 @@ namespace TriangleTT {
         public TMP_InputField _DebugLogFilePathInputField;
         public static Toggle ShadowToggle;
         public Toggle _ShadowToggle;
+        public static TMP_Dropdown VSyncDropdown;
+        public TMP_Dropdown _VSyncDropdown;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -50,6 +52,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref LapTimesFilePathInputField, this._LapTimesFilePathInputField);
             UnityNullExtensions.AssignIfNull(ref DebugLogFilePathInputField, this._DebugLogFilePathInputField);
             UnityNullExtensions.AssignIfNull(ref ShadowToggle, this._ShadowToggle);
+            UnityNullExtensions.AssignIfNull(ref VSyncDropdown, this._VSyncDropdown);
         }
     }
 }

@@ -1243,6 +1243,7 @@ MonoBehaviour:
   _LapTimesFilePathInputField: {fileID: 1510100796}
   _DebugLogFilePathInputField: {fileID: 328242133}
   _ShadowToggle: {fileID: 669363158}
+  _VSyncDropdown: {fileID: 998621964}
 --- !u!1 &501368923
 GameObject:
   m_ObjectHideFlags: 0
