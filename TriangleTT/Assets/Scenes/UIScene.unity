@@ -1235,14 +1235,14 @@ MonoBehaviour:
   _CheckpointCollider3: {fileID: 0}
   _PlaceholderCarObject: {fileID: 0}
   _CameraAnglePivot: {fileID: 0}
+  _Sunlight: {fileID: 0}
+  _FpsTextLabel: {fileID: 2115991569}
   _OpenMenuButton: {fileID: 1917140491}
   _Menu: {fileID: 1650131306}
   _CloseMenuButton: {fileID: 591538281}
   _LapTimesFilePathInputField: {fileID: 1510100796}
   _DebugLogFilePathInputField: {fileID: 328242133}
   _ShadowToggle: {fileID: 669363158}
-  _Sunlight: {fileID: 0}
-  _FpsTextLabel: {fileID: 2115991569}
 --- !u!1 &501368923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4995,7 +4995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: < FPS counter>
+  m_text: < FPS counter >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
