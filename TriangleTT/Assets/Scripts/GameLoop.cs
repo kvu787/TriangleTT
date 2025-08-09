@@ -77,6 +77,7 @@ namespace TriangleTT {
 
             this.ForceAspectRatio();
 
+            FpsLogic.Update();
             VSyncLogic.UpdateVSyncSetting();
             CheckpointLogic.UpdateLapTimes();
             CarResetLogic.UpdateTimeout();

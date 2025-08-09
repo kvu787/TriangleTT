@@ -35,6 +35,9 @@ namespace TriangleTT {
         public static Light Sunlight;
         public Light _Sunlight;
 
+        public static TMP_Text FpsTextLabel;
+        public TMP_Text _FpsTextLabel;
+
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
             UnityNullExtensions.AssignIfNull(ref CheckpointCollider1, this._CheckpointCollider1);
@@ -53,6 +56,8 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref ShadowToggle, this._ShadowToggle);
 
             UnityNullExtensions.AssignIfNull(ref Sunlight, this._Sunlight);
+
+            UnityNullExtensions.AssignIfNull(ref FpsTextLabel, this._FpsTextLabel);
         }
     }
 }
