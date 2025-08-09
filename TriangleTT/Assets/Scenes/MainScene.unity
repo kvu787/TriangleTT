@@ -748,7 +748,6 @@ GameObject:
   - component: {fileID: 136905024}
   - component: {fileID: 136905023}
   - component: {fileID: 136905022}
-  - component: {fileID: 136905021}
   - component: {fileID: 136905025}
   m_Layer: 0
   m_Name: CheckpointLine2
@@ -757,27 +756,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &136905021
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136905020}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &136905022
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1274,7 +1252,6 @@ GameObject:
   - component: {fileID: 210328434}
   - component: {fileID: 210328433}
   - component: {fileID: 210328432}
-  - component: {fileID: 210328431}
   - component: {fileID: 210328435}
   m_Layer: 0
   m_Name: CheckpointLine1
@@ -1283,27 +1260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &210328431
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210328430}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &210328432
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2383,7 +2339,6 @@ GameObject:
   - component: {fileID: 357973689}
   - component: {fileID: 357973688}
   - component: {fileID: 357973687}
-  - component: {fileID: 357973686}
   - component: {fileID: 357973690}
   m_Layer: 0
   m_Name: CheckpointLine3
@@ -2392,27 +2347,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &357973686
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357973685}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &357973687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5478,7 +5412,6 @@ GameObject:
   - component: {fileID: 1371588293}
   - component: {fileID: 1371588292}
   - component: {fileID: 1371588291}
-  - component: {fileID: 1371588290}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -5486,27 +5419,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1371588290
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371588289}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1371588291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6857,9 +6769,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _FinishLineCollider: {fileID: 1967333340}
-  _CheckpointCollider1: {fileID: 210328431}
-  _CheckpointCollider2: {fileID: 136905021}
-  _CheckpointCollider3: {fileID: 357973686}
+  _CheckpointCollider1: {fileID: 210328435}
+  _CheckpointCollider2: {fileID: 136905025}
+  _CheckpointCollider3: {fileID: 357973690}
   _PlaceholderCarObject: {fileID: 1285343207}
   _CameraAnglePivot: {fileID: 1955620100}
   _OpenMenuButton: {fileID: 0}
