@@ -7,16 +7,16 @@ namespace TriangleTT {
         public static CarState InitialCarState;
 
         private static readonly TimeSpan ResetTimerDuration = TimeSpan.FromSeconds(0.6f);
-        private static readonly Stopwatch resetCarStopwatch = new();
+        private static readonly Stopwatch ResetCarStopwatch = new();
 
         public static void Init() {
             InitialCarState = CarLogic.CarState;
         }
 
         public static void UpdateTimeout() {
-            if (resetCarStopwatch.IsRunning) {
-                if (resetCarStopwatch.Elapsed > ResetTimerDuration) {
-                    resetCarStopwatch.Reset();
+            if (ResetCarStopwatch.IsRunning) {
+                if (ResetCarStopwatch.Elapsed > ResetTimerDuration) {
+                    ResetCarStopwatch.Reset();
                     IsTimedOut = false;
                 } else {
                     IsTimedOut = true;
@@ -27,7 +27,7 @@ namespace TriangleTT {
         }
 
         public static void ResetCar() {
-            resetCarStopwatch.Restart();
+            ResetCarStopwatch.Restart();
             CheckpointLogic.Reset();
             CarLogic.CarState = InitialCarState;
         }

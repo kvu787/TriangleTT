@@ -5,7 +5,6 @@ using UnityEngine.Assertions;
 
 namespace TriangleTT {
     public static class CollisionLogic {
-
         public static bool HasCollided(Collider a, Collider b) {
             // I use Physics.ComputePenetration because I was having issues with the more commonly used Collider.OnTriggerEnter.
             // When the car collided with a barrier right next to its reset position and the reset timeout was too low, OnTriggerEnter

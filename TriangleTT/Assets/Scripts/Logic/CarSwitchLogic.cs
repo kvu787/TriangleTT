@@ -10,8 +10,8 @@ namespace TriangleTT {
 
         private static List<Car> Cars;
 
-        private const string defaultGarageFileName = "DefaultGarage.json";
-        private const string overrideGarageFileName = "OverrideGarage.json";
+        private const string DefaultGarageFileName = "DefaultGarage.json";
+        private const string OverrideGarageFileName = "OverrideGarage.json";
 
         public static void Init() {
             SceneObjects.PlaceholderCarObject.SetActive(false);
@@ -26,10 +26,10 @@ namespace TriangleTT {
         }
 
         private static string ValidateAndGetGarageFilePath() {
-            string defaultGarageFilePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), defaultGarageFileName);
+            string defaultGarageFilePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), DefaultGarageFileName);
             Assert.IsTrue(File.Exists(defaultGarageFilePath), $"Default garage does not exist at {defaultGarageFilePath}");
 
-            string overrideGarageFilePath = Path.Combine(Application.persistentDataPath.Replace('/', '\\'), overrideGarageFileName);
+            string overrideGarageFilePath = Path.Combine(Application.persistentDataPath.Replace('/', '\\'), OverrideGarageFileName);
             if (File.Exists(overrideGarageFilePath)) {
                 Debug.Log($"Reading from override garage at '{overrideGarageFilePath}'");
                 return overrideGarageFilePath;

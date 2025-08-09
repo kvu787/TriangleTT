@@ -9,20 +9,20 @@ namespace TriangleTT {
     public static class CheckpointLogic {
         public static string LapTimesFilePath;
 
-        private static readonly List<Collider> checkpoints = new() {
+        private static readonly List<Collider> Checkpoints = new() {
             SceneObjects.FinishLineCollider,
             SceneObjects.CheckpointCollider1,
             SceneObjects.CheckpointCollider2,
             SceneObjects.CheckpointCollider3,
         };
 
-        private static readonly Stopwatch lapTimer = new();
-        private static List<TimeSpan> cumulativeTimes = new();
-        private static int lapsCompleted = 0;
+        private static readonly Stopwatch LapTimer = new();
+        private static List<TimeSpan> CumulativeTimes = new();
+        private static int LapsCompleted = 0;
 
-        private static int nextCheckpointIndex = 0;
+        private static int NextCheckpointIndex = 0;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
-        private static Collider nextCheckpoint => checkpoints[nextCheckpointIndex];
+        private static Collider NextCheckpoint => Checkpoints[NextCheckpointIndex];
 
         public static void Init() {
             DateTimeOffset currentTime = DateTimeOffset.Now;
@@ -35,47 +35,47 @@ namespace TriangleTT {
         }
 
         private static void AdvanceCheckpoint() {
-            nextCheckpointIndex = (nextCheckpointIndex + 1) % checkpoints.Count;
+            NextCheckpointIndex = (NextCheckpointIndex + 1) % Checkpoints.Count;
         }
 
         private static void OutputLapTimings() {
             using StreamWriter writer = File.AppendText(LapTimesFilePath);
-            writer.WriteLine($"Lap {lapsCompleted}");
-            writer.WriteLine($"Total lap time: {cumulativeTimes.Last()}");
+            writer.WriteLine($"Lap {LapsCompleted}");
+            writer.WriteLine($"Total lap time: {CumulativeTimes.Last()}");
             TimeSpan prevCumulativeTime = TimeSpan.Zero;
-            for (int i = 0; i < checkpoints.Count; i++) {
-                writer.WriteLine($"Section {i + 1} time: {cumulativeTimes[i] - prevCumulativeTime}");
-                prevCumulativeTime = cumulativeTimes[i];
+            for (int i = 0; i < Checkpoints.Count; i++) {
+                writer.WriteLine($"Section {i + 1} time: {CumulativeTimes[i] - prevCumulativeTime}");
+                prevCumulativeTime = CumulativeTimes[i];
             }
-            for (int i = 0; i < checkpoints.Count; i++) {
-                writer.WriteLine($"Section {i + 1} cumulative time: {cumulativeTimes[i]}");
+            for (int i = 0; i < Checkpoints.Count; i++) {
+                writer.WriteLine($"Section {i + 1} cumulative time: {CumulativeTimes[i]}");
             }
             writer.WriteLine();
         }
 
         public static void Reset() {
-            lapTimer.Reset();
-            cumulativeTimes = new List<TimeSpan>();
-            nextCheckpointIndex = 0;
+            LapTimer.Reset();
+            CumulativeTimes = new List<TimeSpan>();
+            NextCheckpointIndex = 0;
         }
 
         public static void UpdateLapTimes() {
-            if (!CollisionLogic.HasCollided(CarSwitchLogic.CurrentCar.Collider, nextCheckpoint)) {
+            if (!CollisionLogic.HasCollided(CarSwitchLogic.CurrentCar.Collider, NextCheckpoint)) {
                 return;
             }
 
-            if (nextCheckpointIndex == 0) {
-                if (cumulativeTimes.Count == 0) {
-                    lapTimer.Start();
+            if (NextCheckpointIndex == 0) {
+                if (CumulativeTimes.Count == 0) {
+                    LapTimer.Start();
                 } else {
-                    lapsCompleted++;
-                    cumulativeTimes.Add(lapTimer.Elapsed);
+                    LapsCompleted++;
+                    CumulativeTimes.Add(LapTimer.Elapsed);
                     OutputLapTimings();
-                    cumulativeTimes = new List<TimeSpan>();
-                    lapTimer.Restart();
+                    CumulativeTimes = new List<TimeSpan>();
+                    LapTimer.Restart();
                 }
             } else {
-                cumulativeTimes.Add(lapTimer.Elapsed);
+                CumulativeTimes.Add(LapTimer.Elapsed);
             }
             AdvanceCheckpoint();
         }
