@@ -2,22 +2,14 @@ using UnityEngine;
 
 namespace TriangleTT {
     public static class MenuManager {
-        public static bool IsMenuOpened = false;
-
         public static void Init() {
             SceneObjects.Menu.SetActive(false);
 
             SceneObjects.LapTimesFilePathInputField.text = Checkpointer.LapTimesFilePath;
             SceneObjects.DebugLogFilePathInputField.text = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
 
-            SceneObjects.OpenMenuButton.onClick.AddListener(() => {
-                SceneObjects.Menu.SetActive(true);
-                IsMenuOpened = true;
-            });
-            SceneObjects.CloseMenuButton.onClick.AddListener(() => {
-                SceneObjects.Menu.SetActive(false);
-                IsMenuOpened = false;
-            });
+            SceneObjects.OpenMenuButton.onClick.AddListener(() => SceneObjects.Menu.SetActive(true));
+            SceneObjects.CloseMenuButton.onClick.AddListener(() => SceneObjects.Menu.SetActive(false));
 
             SetShadowMode(SceneObjects.ShadowToggle.isOn);
             SceneObjects.ShadowToggle.onValueChanged.AddListener((enable) => SetShadowMode(enable));
