@@ -6,7 +6,7 @@ namespace TriangleTT {
         public static bool IsTimedOut = false;
         public static CarState InitialCarState;
 
-        private static readonly TimeSpan ResetTimerDuration = TimeSpan.FromSeconds(0.6f);
+        private static readonly TimeSpan ResetTimerDuration = TimeSpan.FromSeconds(0.5f);
         private static readonly Stopwatch ResetCarStopwatch = new();
 
         public static void Init() {
