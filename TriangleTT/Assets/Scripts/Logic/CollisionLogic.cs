@@ -21,7 +21,7 @@ namespace TriangleTT {
             List<Collider> barrierColliders = GameObject.FindGameObjectsWithTag(Tags.Barrier.ToString()).Select(x => x.GetComponent<Collider>()).ToList();
             Assert.IsFalse(barrierColliders.Any(x => x is null));
             foreach (Collider barrierCollider in barrierColliders) {
-                if (HasCollided(CarSwitchLogic.CurrentCar.Collider, barrierCollider)) {
+                if (HasCollided(CarSwitcher.CurrentCar.Collider, barrierCollider)) {
                     return true;
                 }
             }

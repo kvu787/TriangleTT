@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 
 namespace TriangleTT {
-    public static class CarResetLogic {
+    public static class CarResetter {
         public static bool IsTimedOut = false;
         public static CarState InitialCarState;
 
@@ -28,7 +28,7 @@ namespace TriangleTT {
 
         public static void ResetCar() {
             ResetCarStopwatch.Restart();
-            CheckpointLogic.Reset();
+            Checkpointer.Reset();
             CarLogic.CarState = InitialCarState;
         }
     }

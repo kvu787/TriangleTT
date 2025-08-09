@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace TriangleTT {
-    public static class VSyncLogic {
+    public static class VSyncManager {
         public static void Init() {
             QualitySettings.vSyncCount = SceneSettings.VSyncCount;
         }

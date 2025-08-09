@@ -28,13 +28,13 @@ namespace TriangleTT {
             }
 
             Input.Init();
-            VSyncLogic.Init();
-            MaxQueuedFramesLogic.Init();
-            CheckpointLogic.Init();
-            CarSwitchLogic.Init();
+            VSyncManager.Init();
+            MaxQueuedFramesManager.Init();
+            Checkpointer.Init();
+            CarSwitcher.Init();
             CarLogic.Init();
-            CarResetLogic.Init();
-            MenuLogic.Init();
+            CarResetter.Init();
+            MenuManager.Init();
         }
 
         // Update is called once per frame
@@ -55,18 +55,18 @@ namespace TriangleTT {
             }
 
             AspectRatioEnforcer.Update();
-            FpsLogic.Update();
-            VSyncLogic.UpdateVSyncSetting();
-            CheckpointLogic.UpdateLapTimes();
-            CarResetLogic.UpdateTimeout();
+            FpsDisplayManager.Update();
+            VSyncManager.UpdateVSyncSetting();
+            Checkpointer.UpdateLapTimes();
+            CarResetter.UpdateTimeout();
 
-            if (CarSwitchLogic.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollidedWithBarrier()) {
-                CarResetLogic.ResetCar();
+            if (CarSwitcher.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollidedWithBarrier()) {
+                CarResetter.ResetCar();
                 CarLogic.WriteCarStateToCarObject();
                 return;
             }
 
-            if (CarResetLogic.IsTimedOut) {
+            if (CarResetter.IsTimedOut) {
                 return;
             }
 

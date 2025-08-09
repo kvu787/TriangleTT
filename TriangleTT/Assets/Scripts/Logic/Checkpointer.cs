@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace TriangleTT {
-    public static class CheckpointLogic {
+    public static class Checkpointer {
         public static string LapTimesFilePath;
 
         private static readonly List<Collider> Checkpoints = new() {
@@ -59,7 +59,7 @@ namespace TriangleTT {
         }
 
         public static void UpdateLapTimes() {
-            if (!CollisionLogic.HasCollided(CarSwitchLogic.CurrentCar.Collider, NextCheckpoint)) {
+            if (!CollisionLogic.HasCollided(CarSwitcher.CurrentCar.Collider, NextCheckpoint)) {
                 return;
             }
 

@@ -14,7 +14,7 @@ namespace TriangleTT {
         }
 
         public static void ProcessCarInputAndPhysics() {
-            Dynamic dynamic = CarSwitchLogic.CurrentCar.Dynamic;
+            Dynamic dynamic = CarSwitcher.CurrentCar.Dynamic;
             if (Input.Brake == 0) {
                 if (Input.Accel.magnitude > 0) {
                     // Map XY input onto XZ world plane
@@ -77,8 +77,8 @@ namespace TriangleTT {
         }
 
         public static void WriteCarStateToCarObject() {
-            CarSwitchLogic.CurrentCar.GameObject.transform.position = CarState.Position;
-            CarSwitchLogic.CurrentCar.GameObject.transform.rotation = CarState.Rotation;
+            CarSwitcher.CurrentCar.GameObject.transform.position = CarState.Position;
+            CarSwitcher.CurrentCar.GameObject.transform.rotation = CarState.Rotation;
         }
     }
 }

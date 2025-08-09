@@ -1,13 +1,13 @@
 using UnityEngine;
 
 namespace TriangleTT {
-    public static class MenuLogic {
+    public static class MenuManager {
         public static bool IsMenuOpened = false;
 
         public static void Init() {
             SceneObjects.Menu.SetActive(false);
 
-            SceneObjects.LapTimesFilePathInputField.text = CheckpointLogic.LapTimesFilePath;
+            SceneObjects.LapTimesFilePathInputField.text = Checkpointer.LapTimesFilePath;
             SceneObjects.DebugLogFilePathInputField.text = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
 
             SceneObjects.OpenMenuButton.onClick.AddListener(() => {
