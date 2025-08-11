@@ -981,6 +981,7 @@ MonoBehaviour:
   _DebugLogFilePathInputField: {fileID: 1471609326}
   _ShadowToggle: {fileID: 669363158}
   _VSyncDropdown: {fileID: 315929855}
+  _RenderScaleSlider: {fileID: 1887772209}
 --- !u!1001 &591538279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2480,7 +2481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2596388875950247851, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
       propertyPath: m_Value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2596388875950247851, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
       propertyPath: m_MaxValue
@@ -2604,6 +2605,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6511763302816992498, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
   m_PrefabInstance: {fileID: 1887772207}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887772209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2596388875950247851, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
+  m_PrefabInstance: {fileID: 1887772207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1917140489
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace TriangleTT {
     public static class MenuManager {
@@ -16,6 +19,11 @@ namespace TriangleTT {
 
             QualitySettings.vSyncCount = SceneObjects.VSyncDropdown.value;
             SceneObjects.VSyncDropdown.onValueChanged.AddListener((index) => QualitySettings.vSyncCount = index);
+
+            UniversalRenderPipelineAsset urpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+            Assert.IsNotNull(urpAsset);
+            urpAsset.renderScale = SceneObjects.RenderScaleSlider.value;
+            SceneObjects.RenderScaleSlider.onValueChanged.AddListener((value) => urpAsset.renderScale = value);
         }
 
         private static void SetShadowMode(bool isEnabled) {

@@ -35,6 +35,8 @@ namespace TriangleTT {
         public Toggle _ShadowToggle;
         public static TMP_Dropdown VSyncDropdown;
         public TMP_Dropdown _VSyncDropdown;
+        public static Slider RenderScaleSlider;
+        public Slider _RenderScaleSlider;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -53,6 +55,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref DebugLogFilePathInputField, this._DebugLogFilePathInputField);
             UnityNullExtensions.AssignIfNull(ref ShadowToggle, this._ShadowToggle);
             UnityNullExtensions.AssignIfNull(ref VSyncDropdown, this._VSyncDropdown);
+            UnityNullExtensions.AssignIfNull(ref RenderScaleSlider, this._RenderScaleSlider);
         }
     }
 }
