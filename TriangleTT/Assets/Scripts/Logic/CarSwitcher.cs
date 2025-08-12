@@ -10,33 +10,17 @@ namespace TriangleTT {
 
         private static List<Car> Cars;
 
-        private const string DefaultGarageFileName = "DefaultGarage.json";
-        private const string OverrideGarageFileName = "OverrideGarage.json";
+        private const string GarageFileName = "Garage.json";
 
         public static void Init() {
             SceneObjects.PlaceholderCarObject.SetActive(false);
-
-            string garageFilePath = ValidateAndGetGarageFilePath();
-            string garageFileContents = File.ReadAllText(garageFilePath);
-            Garage garage = Garage.CreateFromJson(garageFileContents);
+            string filePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), GarageFileName);
+            Assert.IsTrue(File.Exists(filePath), $"Garage does not exist at {filePath}");
+            string fileContents = File.ReadAllText(filePath);
+            Garage garage = Garage.CreateFromJson(fileContents);
             CurrentCarIndex = garage.StartCarIndex;
             Cars = garage.Cars;
-
             CurrentCar.GameObject.SetActive(true);
-        }
-
-        private static string ValidateAndGetGarageFilePath() {
-            string defaultGarageFilePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), DefaultGarageFileName);
-            Assert.IsTrue(File.Exists(defaultGarageFilePath), $"Default garage does not exist at {defaultGarageFilePath}");
-
-            string overrideGarageFilePath = Path.Combine(Application.persistentDataPath.Replace('/', '\\'), OverrideGarageFileName);
-            if (File.Exists(overrideGarageFilePath)) {
-                Debug.Log($"Reading from override garage at '{overrideGarageFilePath}'");
-                return overrideGarageFilePath;
-            } else {
-                Debug.Log($"Override garage not found at '{overrideGarageFilePath}', so reading from default garage at '{defaultGarageFilePath}'");
-                return defaultGarageFilePath;
-            }
         }
 
         public static bool ProcessCarSwitch() {
