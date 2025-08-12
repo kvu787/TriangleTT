@@ -5439,7 +5439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384165149}
   m_Layer: 0
-  m_Name: TrackSideCones
+  m_Name: Cones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6729,6 +6729,7 @@ MonoBehaviour:
   _DebugLogFilePathInputField: {fileID: 0}
   _ShadowToggle: {fileID: 0}
   _VSyncDropdown: {fileID: 0}
+  _RenderScaleSlider: {fileID: 0}
 --- !u!1001 &1699465818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6983,7 +6984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773652240}
   m_Layer: 0
-  m_Name: CheckpointLines
+  m_Name: Checkpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
