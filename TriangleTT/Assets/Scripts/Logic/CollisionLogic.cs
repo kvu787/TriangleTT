@@ -5,6 +5,16 @@ using UnityEngine.Assertions;
 
 namespace TriangleTT {
     public static class CollisionLogic {
+        private static IEnumerable<Collider> Colliders;
+
+        public static void Init() {
+            List<GameObject> gameObjects = new();
+            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tags.Barrier.ToString()));
+            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tags.Cone.ToString()));
+            Colliders = gameObjects.Select(x => x.GetComponent<Collider>());
+            Assert.IsFalse(Colliders.Any(x => x is null));
+        }
+
         public static bool HasCollided(Collider a, Collider b) {
             // I use Physics.ComputePenetration because I was having issues with the more commonly used Collider.OnTriggerEnter.
             // When the car collided with a barrier right next to its reset position and the reset timeout was too low, OnTriggerEnter
@@ -17,11 +27,9 @@ namespace TriangleTT {
                 out _, out _);
         }
 
-        public static bool HasCarCollidedWithBarrier() {
-            List<Collider> barrierColliders = GameObject.FindGameObjectsWithTag(Tags.Barrier.ToString()).Select(x => x.GetComponent<Collider>()).ToList();
-            Assert.IsFalse(barrierColliders.Any(x => x is null));
-            foreach (Collider barrierCollider in barrierColliders) {
-                if (HasCollided(CarSwitcher.CurrentCar.Collider, barrierCollider)) {
+        public static bool HasCarCollided() {
+            foreach (Collider collider in Colliders) {
+                if (HasCollided(CarSwitcher.CurrentCar.Collider, collider)) {
                     return true;
                 }
             }

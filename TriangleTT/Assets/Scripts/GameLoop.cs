@@ -35,6 +35,7 @@ namespace TriangleTT {
             CarLogic.Init();
             CarResetter.Init();
             MenuManager.Init();
+            CollisionLogic.Init();
         }
 
         // Update is called once per frame
@@ -65,7 +66,7 @@ namespace TriangleTT {
                     CarLogic.WriteCarStateToCarObject();
                 }
             } else {
-                if (CarSwitcher.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollidedWithBarrier()) {
+                if (CarSwitcher.ProcessCarSwitch() || Input.ResetCarEvent || CollisionLogic.HasCarCollided()) {
                     CarResetter.ResetCar();
                     CarLogic.WriteCarStateToCarObject();
                     return;
