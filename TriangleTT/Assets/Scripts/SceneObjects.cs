@@ -37,6 +37,8 @@ namespace TriangleTT {
         public TMP_Dropdown _VSyncDropdown;
         public static Slider RenderScaleSlider;
         public Slider _RenderScaleSlider;
+        public static Toggle EnableConesToggle;
+        public Toggle _EnableConesToggle;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -56,6 +58,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref ShadowToggle, this._ShadowToggle);
             UnityNullExtensions.AssignIfNull(ref VSyncDropdown, this._VSyncDropdown);
             UnityNullExtensions.AssignIfNull(ref RenderScaleSlider, this._RenderScaleSlider);
+            UnityNullExtensions.AssignIfNull(ref EnableConesToggle, this._EnableConesToggle);
         }
     }
 }
