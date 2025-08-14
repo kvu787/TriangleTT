@@ -39,6 +39,8 @@ namespace TriangleTT {
         public Slider _RenderScaleSlider;
         public static Toggle EnableConesToggle;
         public Toggle _EnableConesToggle;
+        public static Toggle EnableBarriersToggle;
+        public Toggle _EnableBarriersToggle;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -59,6 +61,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref VSyncDropdown, this._VSyncDropdown);
             UnityNullExtensions.AssignIfNull(ref RenderScaleSlider, this._RenderScaleSlider);
             UnityNullExtensions.AssignIfNull(ref EnableConesToggle, this._EnableConesToggle);
+            UnityNullExtensions.AssignIfNull(ref EnableBarriersToggle, this._EnableBarriersToggle);
         }
     }
 }

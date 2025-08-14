@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 namespace TriangleTT {
     public static class MenuManager {
-        private static List<GameObject> Cones;
+        private static readonly List<GameObject> Cones = new();
+        private static readonly List<GameObject> Barriers = new();
 
         public static void Init() {
             SceneObjects.Menu.SetActive(false);
@@ -29,14 +31,19 @@ namespace TriangleTT {
             urpAsset.renderScale = SceneObjects.RenderScaleSlider.value;
             SceneObjects.RenderScaleSlider.onValueChanged.AddListener(value => urpAsset.renderScale = value);
 
-            Cones = GameObject.FindGameObjectsWithTag(Tags.Cone.ToString()).ToList();
-            SetConesState(SceneObjects.EnableConesToggle.isOn);
-            SceneObjects.EnableConesToggle.onValueChanged.AddListener(enable => SetConesState(enable));
+            SetupGameObjectToggle(Cones, Tags.Cone, SceneObjects.EnableConesToggle);
+            SetupGameObjectToggle(Barriers, Tags.Barrier, SceneObjects.EnableBarriersToggle);
         }
 
-        private static void SetConesState(bool enable) {
-            foreach (GameObject cone in Cones) {
-                cone.SetActive(enable);
+        private static void SetupGameObjectToggle(List<GameObject> gameObjects, Tags tag, Toggle toggle) {
+            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(tag.ToString()));
+            SetGameObjectsState(toggle.isOn, gameObjects);
+            toggle.onValueChanged.AddListener(enable => SetGameObjectsState(enable, gameObjects));
+        }
+
+        private static void SetGameObjectsState(bool enable, List<GameObject> gameObjects) {
+            foreach (GameObject gameObject in gameObjects) {
+                gameObject.SetActive(enable);
             }
         }
 
