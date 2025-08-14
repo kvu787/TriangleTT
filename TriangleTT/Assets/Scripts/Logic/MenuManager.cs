@@ -31,11 +31,11 @@ namespace TriangleTT {
             urpAsset.renderScale = SceneObjects.RenderScaleSlider.value;
             SceneObjects.RenderScaleSlider.onValueChanged.AddListener(value => urpAsset.renderScale = value);
 
-            SetupGameObjectToggle(Cones, Tags.Cone, SceneObjects.EnableConesToggle);
-            SetupGameObjectToggle(Barriers, Tags.Barrier, SceneObjects.EnableBarriersToggle);
+            SetupGameObjectToggle(Cones, Tag.Cone, SceneObjects.EnableConesToggle);
+            SetupGameObjectToggle(Barriers, Tag.Barrier, SceneObjects.EnableBarriersToggle);
         }
 
-        private static void SetupGameObjectToggle(List<GameObject> gameObjects, Tags tag, Toggle toggle) {
+        private static void SetupGameObjectToggle(List<GameObject> gameObjects, Tag tag, Toggle toggle) {
             gameObjects.AddRange(GameObject.FindGameObjectsWithTag(tag.ToString()));
             SetGameObjectsState(toggle.isOn, gameObjects);
             toggle.onValueChanged.AddListener(enable => SetGameObjectsState(enable, gameObjects));

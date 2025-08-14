@@ -9,8 +9,8 @@ namespace TriangleTT {
 
         public static void Init() {
             List<GameObject> gameObjects = new();
-            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tags.Barrier.ToString()));
-            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tags.Cone.ToString()));
+            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Barrier.ToString()));
+            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Cone.ToString()));
             Colliders = gameObjects.Select(x => x.GetComponent<Collider>());
             Assert.IsFalse(Colliders.Any(x => x is null));
         }

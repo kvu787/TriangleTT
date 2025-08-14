@@ -1,5 +1,5 @@
 namespace TriangleTT {
-    public enum Tags {
+    public enum Tag {
         Barrier,
         FinishLine,
         Cone,
