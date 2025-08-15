@@ -1,0 +1,77 @@
+{
+    "StartCarIndex": 1,
+    "Cars": [
+        {
+            "gameObjectName": "PerchaGreen",
+            "Dynamic": {
+                "VelocityLimiter": 75.0,
+                "AccelerationMap": {
+                    "Forward": 150.0,
+                    "Reverse": 300.0,
+                    "Left": 100.0,
+                    "Right": 100.0
+                }
+            }
+        },
+        {
+            "gameObjectName": "PerchaBlue",
+            "Dynamic": {
+                "VelocityLimiter": -1.0,
+                "AccelerationMap": {
+                    "Forward": 100.0,
+                    "Reverse": 200.0,
+                    "Left": 100.0,
+                    "Right": 100.0
+                }
+            }
+        },
+        {
+            "gameObjectName": "PerchaRed",
+            "Dynamic": {
+                "VelocityLimiter": -1.0,
+                "AccelerationMap": {
+                    "Forward": 300.0,
+                    "Reverse": 600.0,
+                    "Left": 200.0,
+                    "Right": 200.0
+                }
+            }
+        },
+        {
+            "gameObjectName": "PerchaYellow",
+            "Dynamic": {
+                "VelocityLimiter": -1.0,
+                "AccelerationMap": {
+                    "Forward": 500.0,
+                    "Reverse": 1000.0,
+                    "Left": 500.0,
+                    "Right": 500.0
+                }
+            }
+        },
+        {
+            "gameObjectName": "PerchaCyan",
+            "Dynamic": {
+                "VelocityLimiter": -1.0,
+                "AccelerationMap": {
+                    "Forward": 100.0,
+                    "Reverse": 200.0,
+                    "Left": 400.0,
+                    "Right": 400.0
+                }
+            }
+        },
+        {
+            "gameObjectName": "PerchaMagenta",
+            "Dynamic": {
+                "VelocityLimiter": -1.0,
+                "AccelerationMap": {
+                    "Forward": 1000.0,
+                    "Reverse": 2000.0,
+                    "Left": 200.0,
+                    "Right": 200.0
+                }
+            }
+        }
+    ]
+}
