@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace TriangleTT {
-    public static class Checkpointer {
+    public static class LapTimer {
         public static string LapTimesFilePath;
 
         private static readonly List<Collider> Checkpoints = new() {
@@ -16,7 +16,7 @@ namespace TriangleTT {
             SceneObjects.CheckpointCollider3,
         };
 
-        private static readonly Stopwatch LapTimer = new();
+        private static readonly Stopwatch Stopwatch = new();
         private static List<TimeSpan> CumulativeTimes = new();
         private static int LapsCompleted = 0;
 
@@ -53,7 +53,7 @@ namespace TriangleTT {
         }
 
         public static void Reset() {
-            LapTimer.Reset();
+            Stopwatch.Reset();
             CumulativeTimes = new List<TimeSpan>();
             NextCheckpointIndex = 0;
         }
@@ -65,16 +65,16 @@ namespace TriangleTT {
 
             if (NextCheckpointIndex == 0) {
                 if (CumulativeTimes.Count == 0) {
-                    LapTimer.Start();
+                    Stopwatch.Start();
                 } else {
                     LapsCompleted++;
-                    CumulativeTimes.Add(LapTimer.Elapsed);
+                    CumulativeTimes.Add(Stopwatch.Elapsed);
                     OutputLapTimings();
                     CumulativeTimes = new List<TimeSpan>();
-                    LapTimer.Restart();
+                    Stopwatch.Restart();
                 }
             } else {
-                CumulativeTimes.Add(LapTimer.Elapsed);
+                CumulativeTimes.Add(Stopwatch.Elapsed);
             }
             AdvanceCheckpoint();
         }

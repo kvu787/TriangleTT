@@ -28,7 +28,7 @@ namespace TriangleTT {
 
         public static void ResetCar() {
             ResetCarStopwatch.Restart();
-            Checkpointer.Reset();
+            LapTimer.Reset();
             CarLogic.CarState = InitialCarState;
         }
     }

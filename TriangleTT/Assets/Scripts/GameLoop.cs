@@ -30,7 +30,7 @@ namespace TriangleTT {
             }
 
             Input.Init();
-            Checkpointer.Init();
+            LapTimer.Init();
             CarSwitcher.Init();
             CarLogic.Init();
             CarResetter.Init();
@@ -57,7 +57,7 @@ namespace TriangleTT {
 
             AspectRatioEnforcer.Update();
             FpsDisplayManager.Update();
-            Checkpointer.UpdateLapTimes();
+            LapTimer.UpdateLapTimes();
             CarResetter.UpdateTimeout();
 
             if (CarResetter.IsTimedOut) {

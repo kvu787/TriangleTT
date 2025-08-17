@@ -13,7 +13,7 @@ namespace TriangleTT {
         public static void Init() {
             SceneObjects.Menu.SetActive(false);
 
-            SceneObjects.LapTimesFilePathInputField.text = Checkpointer.LapTimesFilePath;
+            SceneObjects.LapTimesFilePathInputField.text = LapTimer.LapTimesFilePath;
             SceneObjects.DebugLogFilePathInputField.text = $"{Application.persistentDataPath}/Player.log".Replace("/", "\\");
 
             SceneObjects.OpenMenuButton.onClick.AddListener(() => SceneObjects.Menu.SetActive(true));
