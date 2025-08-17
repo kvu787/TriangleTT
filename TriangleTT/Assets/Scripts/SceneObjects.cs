@@ -41,6 +41,10 @@ namespace TriangleTT {
         public Toggle _EnableConesToggle;
         public static Toggle EnableBarriersToggle;
         public Toggle _EnableBarriersToggle;
+        public static TMP_Text CurrentLapTimeLabel;
+        public TMP_Text _CurrentLapTimeLabel;
+        public static TMP_Text BestLapTimeLabel;
+        public TMP_Text _BestLapTimeLabel;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -62,6 +66,8 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref RenderScaleSlider, this._RenderScaleSlider);
             UnityNullExtensions.AssignIfNull(ref EnableConesToggle, this._EnableConesToggle);
             UnityNullExtensions.AssignIfNull(ref EnableBarriersToggle, this._EnableBarriersToggle);
+            UnityNullExtensions.AssignIfNull(ref CurrentLapTimeLabel, this._CurrentLapTimeLabel);
+            UnityNullExtensions.AssignIfNull(ref BestLapTimeLabel, this._BestLapTimeLabel);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace TriangleTT {
             SceneObjects.CheckpointCollider3,
         };
 
+        private static TimeSpan BestLapTime = TimeSpan.MaxValue;
         private static readonly Stopwatch Stopwatch = new();
         private static List<TimeSpan> CumulativeTimes = new();
         private static int LapsCompleted = 0;
@@ -58,6 +59,13 @@ namespace TriangleTT {
             NextCheckpointIndex = 0;
         }
 
+        public static void UpdateDisplay() {
+            SceneObjects.CurrentLapTimeLabel.text = Stopwatch.Elapsed.ToString(@"mm\:ss\.fff");
+            if (BestLapTime != TimeSpan.MaxValue) {
+                SceneObjects.BestLapTimeLabel.text = BestLapTime.ToString(@"mm\:ss\.fff");
+            }
+        }
+
         public static void UpdateLapTimes() {
             if (!CollisionLogic.HasCollided(CarSwitcher.CurrentCar.Collider, NextCheckpoint)) {
                 return;
@@ -67,8 +75,12 @@ namespace TriangleTT {
                 if (CumulativeTimes.Count == 0) {
                     Stopwatch.Start();
                 } else {
+                    Stopwatch.Stop();
                     LapsCompleted++;
                     CumulativeTimes.Add(Stopwatch.Elapsed);
+                    if (Stopwatch.Elapsed < BestLapTime) {
+                        BestLapTime = Stopwatch.Elapsed;
+                    }
                     OutputLapTimings();
                     CumulativeTimes = new List<TimeSpan>();
                     Stopwatch.Restart();

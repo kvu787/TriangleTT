@@ -58,6 +58,7 @@ namespace TriangleTT {
             AspectRatioEnforcer.Update();
             FpsDisplayManager.Update();
             LapTimer.UpdateLapTimes();
+            LapTimer.UpdateDisplay();
             CarResetter.UpdateTimeout();
 
             if (CarResetter.IsTimedOut) {
