@@ -16,6 +16,7 @@ namespace TriangleTT {
             SceneObjects.CheckpointCollider3,
         };
 
+        private static TimeSpan PreviousLapTime = TimeSpan.MaxValue;
         private static TimeSpan BestLapTime = TimeSpan.MaxValue;
         private static readonly Stopwatch Stopwatch = new();
         private static List<TimeSpan> CumulativeTimes = new();
@@ -60,9 +61,12 @@ namespace TriangleTT {
         }
 
         public static void UpdateDisplay() {
-            SceneObjects.CurrentLapTimeLabel.text = Stopwatch.Elapsed.ToString(@"mm\:ss\.fff");
+            SceneObjects.CurrentLapTimeLabel.text = Stopwatch.Elapsed.ToLapTime();
             if (BestLapTime != TimeSpan.MaxValue) {
-                SceneObjects.BestLapTimeLabel.text = BestLapTime.ToString(@"mm\:ss\.fff");
+                SceneObjects.BestLapTimeLabel.text = BestLapTime.ToLapTime();
+            }
+            if (PreviousLapTime != TimeSpan.MaxValue) {
+                SceneObjects.PreviousLapTimeLabel.text = PreviousLapTime.ToLapTime();
             }
         }
 
@@ -78,6 +82,7 @@ namespace TriangleTT {
                     Stopwatch.Stop();
                     LapsCompleted++;
                     CumulativeTimes.Add(Stopwatch.Elapsed);
+                    PreviousLapTime = Stopwatch.Elapsed;
                     if (Stopwatch.Elapsed < BestLapTime) {
                         BestLapTime = Stopwatch.Elapsed;
                     }
