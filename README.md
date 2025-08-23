@@ -50,7 +50,7 @@ Reset car: X on Xbox, □ on PlayStation, Y on Switch
 
 # Screenshots
 
-![alt text](<Images/zScreenshot04 - Copy.png>)
+![alt text](<Images/zScreenshot05 - Copy.png>)
 ![alt text](<Images/zScreenshot01 - Copy.png>)
 ![alt text](<Images/zScreenshot02 - Copy.png>)
 ![alt text](<Images/zScreenshot03 - Copy.png>)
