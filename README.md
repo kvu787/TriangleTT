@@ -1,10 +1,14 @@
 ![alt text](Images/Thumbnail.png)
 
+# Game description
+
+Race for the best lap time with a variety of fun-to-drive cars!
+
 # How to build and run
 
 1. Download this Git repository.
 2. Install and open Unity Hub.
-3. Install the Unity version specified in this file: [TriangleTT/ProjectSettings/ProjectVersion.txt](TriangleTT/ProjectSettings/ProjectVersion.txt).
+3. Install the Unity version specified in this file: [`TriangleTT/ProjectSettings/ProjectVersion.txt`](TriangleTT/ProjectSettings/ProjectVersion.txt).
 4. In Unity Hub, click "Add", then "Add project from disk", then select the `TriangleTT` subfolder of the Git repository.
 5. Open the project that was just created.
 6. In Unity Editor, with the project opened, press "Ctrl+B".
