@@ -36,12 +36,13 @@ Reset car: X on Xbox, □ on PlayStation, Y on Switch
 
 # Tips and tricks
 
-* To record a lap time, you must hit the checkpoints (white lines) in order: 1) checkered line, 2) blue turn checkpoint, 3) red turn checkpoint, and 4) yellow turn checkpoint.
 * The green car is the only car with a max velocity.
 * Master the standard cars (green, blue, red) before the special cars (yellow, cyan, magenta).
 * Use a controller instead of a keyboard for smoother driving.
 * Try left and right sticks to see which is easier to control.
   * As a right-handed person, I found using the right stick easier than the left stick.
+* To record a lap time, you must hit the checkpoints (white lines) in order: 1) checkered line, 2) blue turn checkpoint, 3) red turn checkpoint, and 4) yellow turn checkpoint.
+* To see detailed section and lap times with full history, open the menu and open the file path in "File path to lap times:".
 * Check out the cars' stats by reading [`Garage.json`](TriangleTT/Assets/StreamingAssets/Garage.json).
 * You can modify the cars' stats by editing the `Garage.json` in your build folder.
 
