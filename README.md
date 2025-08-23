@@ -36,8 +36,10 @@ Reset car: X on Xbox, □ on PlayStation, Y on Switch
 
 # Tips and tricks
 
+* To drive more freely, open the menu and disable barriers and cones.
 * The green car is the only car with a max velocity.
 * Master the standard cars (green, blue, red) before the special cars (yellow, cyan, magenta).
+* The special cars have unusual driving dynamics.
 * Use a controller instead of a keyboard for smoother driving.
 * Try left and right sticks to see which is easier to control.
   * As a right-handed person, I found using the right stick easier than the left stick.
@@ -65,4 +67,3 @@ Before committing, do the following:
 * Run the game in the editor player.
 * Run the exported game by clicking "File/Build and Run" or Ctrl+B.
   * The export build process might change some non-gitignored files. These changes are build artifacts that are mixed in with non-build-artifact files. This is a known issue. However, these changes should still be committed.
-
