@@ -51,7 +51,7 @@ Reset car: X on Xbox, □ on PlayStation, Y on Switch
 ![alt text](Images/Screenshot2.png)
 ![alt text](Images/Screenshot3.png)
 ![alt text](Images/Screenshot5.png)
-![alt text](Images/Screenshot6.png)
+![alt text](Images/Screenshot9.png)
 
 # License
 
