@@ -13,7 +13,7 @@ Race for the best lap time with a variety of fun-to-drive cars!
 5. Open the project that was just created.
 6. In Unity Editor, with the project opened, press "Ctrl+B".
     * This is a shortcut for "Build And Run".
-7. Create a new folder for the project to be built in and continue.
+7. Create a new folder for the project to be built in, and continue.
     * The Unity Editor should show a dialog showing build progress.
     * It should take less than a minute to build.
     * Once the build completes, the game should automatically open.
