@@ -60,7 +60,7 @@ Reset car: X on Xbox, □ on PlayStation, Y on Switch
 
 # License
 
-Everything in the repository is licensed under GPL-3.0-or-later.
+This repository is licensed under GPL-3.0-or-later.
 
 # Misc
 
