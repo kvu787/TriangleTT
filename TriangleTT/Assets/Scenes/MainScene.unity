@@ -6786,6 +6786,9 @@ MonoBehaviour:
   _RenderScaleSlider: {fileID: 0}
   _EnableConesToggle: {fileID: 0}
   _EnableBarriersToggle: {fileID: 0}
+  _CurrentLapTimeLabel: {fileID: 0}
+  _PreviousLapTimeLabel: {fileID: 0}
+  _BestLapTimeLabel: {fileID: 0}
 --- !u!1001 &1699465818
 PrefabInstance:
   m_ObjectHideFlags: 0
