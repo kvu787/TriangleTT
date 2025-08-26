@@ -3780,7 +3780,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2596388875950247851, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
       propertyPath: m_Value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2596388875950247851, guid: faa1f1138f4a1f9488da8cd1edc8b6f9, type: 3}
       propertyPath: m_MaxValue
@@ -4702,7 +4702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3421535670126572241, guid: 085bb01a7c67a06499034e4b1f13c5d4, type: 3}
       propertyPath: m_IsOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3753503242989786069, guid: 085bb01a7c67a06499034e4b1f13c5d4, type: 3}
       propertyPath: m_Name
