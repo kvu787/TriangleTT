@@ -32,6 +32,9 @@ namespace TriangleTT {
 
             SetupGameObjectToggle(Cones, Tag.Cone, SceneObjects.EnableConesToggle);
             SetupGameObjectToggle(Barriers, Tag.Barrier, SceneObjects.EnableBarriersToggle);
+
+            FpsDisplayManager.SetSlowFpsCounter(SceneObjects.SlowDownFpsCounterToggle.isOn);
+            SceneObjects.SlowDownFpsCounterToggle.onValueChanged.AddListener(enable => FpsDisplayManager.SetSlowFpsCounter(enable));
         }
 
         private static void SetupGameObjectToggle(List<GameObject> gameObjects, Tag tag, Toggle toggle) {

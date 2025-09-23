@@ -47,6 +47,8 @@ namespace TriangleTT {
         public TMP_Text _PreviousLapTimeLabel;
         public static TMP_Text BestLapTimeLabel;
         public TMP_Text _BestLapTimeLabel;
+        public static Toggle SlowDownFpsCounterToggle;
+        public Toggle _SlowDownFpsCounterToggle;
 
         public void Init() {
             UnityNullExtensions.AssignIfNull(ref FinishLineCollider, this._FinishLineCollider);
@@ -71,6 +73,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref CurrentLapTimeLabel, this._CurrentLapTimeLabel);
             UnityNullExtensions.AssignIfNull(ref PreviousLapTimeLabel, this._PreviousLapTimeLabel);
             UnityNullExtensions.AssignIfNull(ref BestLapTimeLabel, this._BestLapTimeLabel);
+            UnityNullExtensions.AssignIfNull(ref SlowDownFpsCounterToggle, this._SlowDownFpsCounterToggle);
         }
     }
 }
