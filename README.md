@@ -26,7 +26,7 @@ __Keyboard__
 Accelerate: WASD  
 Switch car: Q and E  
 Reset car: R  
-Navigate the UI: Mouse  
+UI navigation: Mouse  
 
 __Controller__
 
