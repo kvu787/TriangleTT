@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://evwq5h7umgym"]
+
+[ext_resource type="Environment" uid="uid://gk4hsarawjtn" path="res://Environment.tres" id="1_uu6xs"]
+[ext_resource type="Material" uid="uid://c6clo8f01e5vw" path="res://Materials/Ground.tres" id="3_cm0pq"]
+[ext_resource type="Material" uid="uid://fp7s8t5ufw7o" path="res://Materials/Blue.tres" id="3_r0du0"]
+[ext_resource type="Material" uid="uid://bhl1q1hmr32po" path="res://Materials/Red.tres" id="4_cm0pq"]
+[ext_resource type="Material" uid="uid://b8r7s70pr85lf" path="res://Materials/Yellow.tres" id="5_fos0i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uu6xs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cm0pq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0du0"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_cm0pq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sunlight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.541675, -0.454519, 0, 0.642788, 0.766044, 0.707107, -0.541675, 0.454519, 0, 10, 0)
+light_energy = 1.2
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_uu6xs")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -0.5, 0)
+material_override = ExtResource("3_cm0pq")
+mesh = SubResource("BoxMesh_uu6xs")
+metadata/_edit_lock_ = true
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171384, 0.5, 1.07532)
+material_override = ExtResource("3_r0du0")
+mesh = SubResource("SphereMesh_cm0pq")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.438324, 0, -0.898817, 0, 1, 0, 0.898817, 0, 0.438324, -1.32536, 0.5, -1.20519)
+material_override = ExtResource("4_cm0pq")
+mesh = SubResource("BoxMesh_r0du0")
+
+[node name="Tent" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.962824, 0, 0.27013, 0, 1, 0, -0.27013, 0, 0.962824, 1.13463, 0.5, -1.21861)
+material_override = ExtResource("5_fos0i")
+mesh = SubResource("PrismMesh_cm0pq")
