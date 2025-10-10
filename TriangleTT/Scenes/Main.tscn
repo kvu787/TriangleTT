@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://evwq5h7umgym"]
+[gd_scene load_steps=11 format=3 uid="uid://evwq5h7umgym"]
 
 [ext_resource type="Environment" uid="uid://gk4hsarawjtn" path="res://Resources/Environment.tres" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://tq417v5if1pj" path="res://Scripts/Main.cs" id="1_v1gob"]
 [ext_resource type="Material" uid="uid://c6clo8f01e5vw" path="res://Materials/Ground.tres" id="3_cm0pq"]
 [ext_resource type="Material" uid="uid://fp7s8t5ufw7o" path="res://Materials/Blue.tres" id="3_r0du0"]
 [ext_resource type="Material" uid="uid://bhl1q1hmr32po" path="res://Materials/Red.tres" id="4_cm0pq"]
@@ -15,6 +16,7 @@
 [sub_resource type="PrismMesh" id="PrismMesh_cm0pq"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_v1gob")
 
 [node name="Sunlight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.541675, -0.454519, 0, 0.642788, 0.766044, 0.707107, -0.541675, 0.454519, 0, 10, 0)
