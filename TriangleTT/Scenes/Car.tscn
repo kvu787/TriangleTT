@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://3qls3ssbpcdq"]
+
+[ext_resource type="PackedScene" uid="uid://dmxi276gebnf3" path="res://GLB/Car.glb" id="1_1k6jk"]
+[ext_resource type="Material" uid="uid://b600bhl8oqkfx" path="res://Materials/Car/BlueBody.tres" id="2_8tfcp"]
+[ext_resource type="Material" uid="uid://dr7h4s8ldojmg" path="res://Materials/Car/BlueCabin.tres" id="3_om1i1"]
+[ext_resource type="Material" uid="uid://ivw3jiiqelj0" path="res://Materials/Car/Headlights.tres" id="4_4s5p8"]
+[ext_resource type="Material" uid="uid://xksrelv85ij5" path="res://Materials/Car/Wheels.tres" id="5_o205g"]
+
+[node name="Car" instance=ExtResource("1_1k6jk")]
+
+[node name="FinalCar" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_8tfcp")
+surface_material_override/1 = ExtResource("3_om1i1")
+surface_material_override/2 = ExtResource("4_4s5p8")
+surface_material_override/3 = ExtResource("5_o205g")
