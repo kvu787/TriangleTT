@@ -1,0 +1,9 @@
+// This file specifies the .NET SDK version that must be used in compilation.
+// https://learn.microsoft.com/en-us/dotnet/core/tools/global-json
+{
+    "sdk": {
+        "version": "8.0.415",
+        "allowPrerelease": false,
+        "rollForward": "disable"
+    }
+}
