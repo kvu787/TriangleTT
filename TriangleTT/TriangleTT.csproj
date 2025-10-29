@@ -1,21 +1,21 @@
 <Project Sdk="Godot.NET.Sdk/4.4.1">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <LangVersion>12.0</LangVersion>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>12.0</LangVersion>
 
-    <!-- I assume this is required by Godot -->
-    <EnableDynamicLoading>true</EnableDynamicLoading>
+        <!-- I assume this is required by Godot -->
+        <EnableDynamicLoading>true</EnableDynamicLoading>
 
-    <AnalysisLevel>latest</AnalysisLevel>
-    <AnalysisMode>All</AnalysisMode>
-    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisMode>All</AnalysisMode>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
-    <!-- Required to enable IDE0005 (unnecessary usings), see https://github.com/dotnet/roslyn/issues/41640 -->
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!-- Required to enable IDE0005 (unnecessary usings), see https://github.com/dotnet/roslyn/issues/41640 -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <!-- Disable CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member' -->
-    <NoWarn>1591</NoWarn>
-  </PropertyGroup>
+        <!-- Disable CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member' -->
+        <NoWarn>1591</NoWarn>
+    </PropertyGroup>
 </Project>
