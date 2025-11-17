@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmxi276gebnf3"
+uid="uid://wil7xjbw7v1l"
 path="res://.godot/imported/Car.glb-f7ddaadbd000b96b44f5c3871da1c2fc.scn"
 
 [deps]
@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Car.glb-f7ddaadbd000b96b44f5c3871da1c2fc.scn"
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=false
 meshes/generate_lods=false
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1

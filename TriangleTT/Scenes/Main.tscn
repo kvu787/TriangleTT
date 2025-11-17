@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://fp7s8t5ufw7o" path="res://Materials/Blue.tres" id="3_r0du0"]
 [ext_resource type="Material" uid="uid://bhl1q1hmr32po" path="res://Materials/Red.tres" id="4_cm0pq"]
 [ext_resource type="Material" uid="uid://b8r7s70pr85lf" path="res://Materials/Yellow.tres" id="5_fos0i"]
-[ext_resource type="PackedScene" uid="uid://dmxi276gebnf3" path="res://GLB/Car.glb" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://wil7xjbw7v1l" path="res://GLB/Car.glb" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://3qls3ssbpcdq" path="res://Scenes/Car.tscn" id="8_50glp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uu6xs"]
