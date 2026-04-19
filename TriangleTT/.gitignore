@@ -32,6 +32,7 @@
 # They shouldn't be checked in because Unity treats these as intermediate build artifacts, instead of build inputs.
 /*.csproj
 /*.sln
+/*.slnx
 
 # I use this folder when doing a standalone build operation and Unity Editor asks for a folder.
 /MyBuildOutput/
