@@ -1,5 +1,6 @@
 root = true
 
+# This section should be the same for all projects.
 [*]
 
 charset = utf-8
@@ -7,16 +8,30 @@ end_of_line = crlf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.cs]
+# This section should be the same for all projects.
+[*.json]
 
 indent_style = space
 indent_size = 4
 
+# This section should be the same for Godot and Unity projects.
+[*.cs]
+
+# Indents
+indent_style = space
+indent_size = 4
+
+# Make all rules in all categories error
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-options#scope
+dotnet_analyzer_diagnostic.severity = error
+
+# IDE0003 and IDE0009: this and Me preferences
 dotnet_style_qualification_for_field = true
 dotnet_style_qualification_for_property = true
 dotnet_style_qualification_for_event = true
 dotnet_style_qualification_for_method = true
 
+# IDE0055: C# formatting options, New-line options
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
 csharp_new_line_before_catch = false
@@ -25,20 +40,89 @@ csharp_new_line_before_members_in_object_initializers = false
 csharp_new_line_before_members_in_anonymous_types = false
 csharp_new_line_between_query_expression_clauses = false
 
-dotnet_style_namespace_match_folder = true
+# IDE0055: C# formatting options, Using directive options
+dotnet_sort_system_directives_first = false
+
+# IDE0130: Namespace does not match folder structure
+dotnet_diagnostic.IDE0130.severity = none
+
+# IDE0160, IDE0161: Namespace declaration preferences
 csharp_style_namespace_declarations = file_scoped
 
-# Treat all IDE* warnings as errors
-dotnet_analyzer_diagnostic.category-Style.severity = error
+#########################
+### IDE* rule toggles ###
+#########################
 
-# Disable: Add accessibility modifiers
-dotnet_diagnostic.IDE0040.severity = none
+# Remove unnecessary cast
+dotnet_diagnostic.IDE0004.severity = suggestion
 
-# Disable: Null check can be simplified (if null check)
-dotnet_diagnostic.IDE0270.severity = none
+# Null check can be simplified (ternary conditional check)
+dotnet_diagnostic.IDE0029.severity = suggestion
 
-# Disable: Remove unused private member
-dotnet_diagnostic.IDE0051.severity = none
+# Null check can be simplified (nullable ternary conditional check)
+dotnet_diagnostic.IDE0030.severity = suggestion
 
-# Disable: Convert to conditional expression
-dotnet_diagnostic.IDE0045.severity = none
+# Add accessibility modifiers
+dotnet_diagnostic.IDE0040.severity = suggestion
+
+# Use conditional expression for assignment
+dotnet_diagnostic.IDE0045.severity = suggestion
+
+# Add readonly modifier
+dotnet_diagnostic.IDE0044.severity = suggestion
+
+# Use conditional expression for return
+dotnet_diagnostic.IDE0046.severity = suggestion
+
+# Remove unnecessary parentheses
+dotnet_diagnostic.IDE0047.severity = suggestion
+
+# Add parentheses for clarity
+dotnet_diagnostic.IDE0048.severity = suggestion
+
+# Remove unused private member
+dotnet_diagnostic.IDE0051.severity = suggestion
+
+# Remove unread private member
+dotnet_diagnostic.IDE0052.severity = suggestion
+
+# Remove unnecessary value assignment
+dotnet_diagnostic.IDE0059.severity = suggestion
+
+# Null check can be simplified (if null check)
+dotnet_diagnostic.IDE0270.severity = suggestion
+
+# Use collection expression for fluent
+dotnet_diagnostic.IDE0305.severity = suggestion
+
+########################################
+### CA* (code analysis) rule toggles ###
+########################################
+
+# Do not expose generic lists
+dotnet_diagnostic.CA1002.severity = suggestion
+
+# Specify CultureInfo
+dotnet_diagnostic.CA1304.severity = suggestion
+
+# Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = suggestion
+
+# Avoid unused private fields
+dotnet_diagnostic.CA1823.severity = suggestion
+
+# Do not use insecure randomness
+dotnet_diagnostic.CA5394.severity = suggestion
+
+###################################################
+### CS* (C Sharp compiler warning) rule toggles ###
+###################################################
+
+# The variable 'variable' is assigned but its value is never used
+dotnet_diagnostic.CS0219.severity = suggestion
+
+# Field 'field' is never assigned to, and will always have its default value 'value'
+dotnet_diagnostic.CS0649.severity = suggestion
+
+# Missing XML comment for publicly visible type or member 'Type_or_Member'
+dotnet_diagnostic.CS1591.severity = none
