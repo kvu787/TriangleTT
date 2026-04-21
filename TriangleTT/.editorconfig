@@ -14,7 +14,7 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-# This section should be the same for Godot and Unity projects.
+# This section should be the same for all Godot and Unity projects.
 [*.cs]
 
 # Indents
