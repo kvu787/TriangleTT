@@ -63,13 +63,13 @@ dotnet_diagnostic.IDE0029.severity = suggestion
 dotnet_diagnostic.IDE0030.severity = suggestion
 
 # Add accessibility modifiers
-dotnet_diagnostic.IDE0040.severity = suggestion
-
-# Use conditional expression for assignment
-dotnet_diagnostic.IDE0045.severity = suggestion
+dotnet_diagnostic.IDE0040.severity = none
 
 # Add readonly modifier
 dotnet_diagnostic.IDE0044.severity = suggestion
+
+# Use conditional expression for assignment
+dotnet_diagnostic.IDE0045.severity = none
 
 # Use conditional expression for return
 dotnet_diagnostic.IDE0046.severity = suggestion
