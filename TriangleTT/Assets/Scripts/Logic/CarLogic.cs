@@ -56,7 +56,7 @@ namespace TriangleTT {
                 }
             } else if (CarState.Velocity != Vector3.zero) {
                 Vector3 opposingVec = (-1 * CarState.Velocity).normalized;
-                Vector3 velocityDelta = opposingVec * Input.Brake * dynamic.AccelerationMap.Reverse * Time.deltaTime;
+                Vector3 velocityDelta = dynamic.AccelerationMap.Reverse * Input.Brake * Time.deltaTime * opposingVec;
                 if (velocityDelta.magnitude >= CarState.Velocity.magnitude) {
                     CarState.Velocity = Vector3.zero;
                 } else {
@@ -77,8 +77,7 @@ namespace TriangleTT {
         }
 
         public static void WriteCarStateToCarObject() {
-            CarSwitcher.CurrentCar.GameObject.transform.position = CarState.Position;
-            CarSwitcher.CurrentCar.GameObject.transform.rotation = CarState.Rotation;
+            CarSwitcher.CurrentCar.GameObject.transform.SetPositionAndRotation(CarState.Position, CarState.Rotation);
         }
     }
 }

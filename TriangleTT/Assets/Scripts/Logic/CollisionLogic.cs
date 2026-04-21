@@ -12,7 +12,7 @@ namespace TriangleTT {
             gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Barrier.ToString()));
             gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Cone.ToString()));
             Colliders = gameObjects.Select(x => x.GetComponent<Collider>());
-            Assert.IsFalse(Colliders.Any(x => x is null));
+            Assert.IsFalse(Colliders.Any(x => x == null));
         }
 
         public static bool HasCollided(Collider a, Collider b) {

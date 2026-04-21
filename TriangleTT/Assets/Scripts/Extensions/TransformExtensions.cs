@@ -6,8 +6,7 @@ namespace TriangleTT {
         public static void SetFrom(this Transform self, Transform other) {
             Assert.IsNotNull(self);
             Assert.IsNotNull(other);
-            self.position = other.position;
-            self.rotation = other.rotation;
+            self.SetPositionAndRotation(other.position, other.rotation);
             self.localScale = other.localScale;
         }
     }
