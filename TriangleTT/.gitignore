@@ -3,7 +3,7 @@
 #   1. ignore.conf generated when creating a Unity project from a built-in template and enabling Unity Version Control
 #   2. The Unity.gitignore file from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-# This file matches less stuff than either of those file because I want to stay on the cautious side by not ignoring files that shouldn't be ignored.
+# This file matches less stuff than either of those files because I want to stay on the cautious side by not ignoring files that shouldn't be ignored.
 # I will add things to this file as I encounter more things that I'm certain should be ignored.
 #
 
