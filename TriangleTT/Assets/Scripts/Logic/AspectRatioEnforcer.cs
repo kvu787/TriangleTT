@@ -7,7 +7,7 @@ namespace TriangleTT {
         private static Vector2Int AspectRatioXY = new(16, 9);
         private static readonly float AspectRatio = (float)AspectRatioXY.x / AspectRatioXY.y;
         private static readonly Stopwatch Stopwatch = new();
-        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(1);
+        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(0.5);
 
         public static void Update() {
             if (Stopwatch.IsRunning) {
