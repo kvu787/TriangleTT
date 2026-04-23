@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-[InitializeOnLoad]
 public static class OpenScenesTool {
     [MenuItem("Tools/1. Open scenes (full game setup)")]
     public static void OpenScenes() {
