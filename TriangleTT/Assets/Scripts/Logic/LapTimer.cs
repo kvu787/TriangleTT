@@ -39,7 +39,7 @@ namespace TriangleTT {
             NextCheckpointIndex = (NextCheckpointIndex + 1) % Checkpoints.Count;
         }
 
-        private static void OutputLapTimings() {
+        private static void WriteLapTimesToFile() {
             using StreamWriter writer = File.AppendText(LapTimesFilePath);
             writer.WriteLine($"Lap {LapsCompleted}");
             writer.WriteLine($"Total lap time: {CumulativeTimes.Last()}");
@@ -60,7 +60,7 @@ namespace TriangleTT {
             NextCheckpointIndex = 0;
         }
 
-        public static void UpdateDisplay() {
+        public static void UpdateLapTimesUi() {
             SceneObjects.CurrentLapTimeLabel.text = Stopwatch.Elapsed.ToLapTime();
             if (BestLapTime != TimeSpan.MaxValue) {
                 SceneObjects.BestLapTimeLabel.text = BestLapTime.ToLapTime();
@@ -70,7 +70,7 @@ namespace TriangleTT {
             }
         }
 
-        public static void UpdateLapTimes() {
+        public static void UpdateInternalLapTimesAndWriteToFile() {
             if (!CollisionLogic.HasCollided(CarSwitcher.CurrentCar.Collider, NextCheckpoint)) {
                 return;
             }
@@ -86,7 +86,7 @@ namespace TriangleTT {
                     if (Stopwatch.Elapsed < BestLapTime) {
                         BestLapTime = Stopwatch.Elapsed;
                     }
-                    OutputLapTimings();
+                    WriteLapTimesToFile();
                     CumulativeTimes = new List<TimeSpan>();
                     Stopwatch.Restart();
                 }
