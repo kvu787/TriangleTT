@@ -13,7 +13,7 @@ namespace TriangleTT {
         private const string GarageFileName = "Garage.json";
 
         public static void Init() {
-            SceneObjects.PlaceholderCarObject.SetActive(false);
+            SceneObjects.PlaceholderCar.SetActive(false);
             string filePath = Path.Combine(Application.streamingAssetsPath.Replace('/', '\\'), GarageFileName);
             Assert.IsTrue(File.Exists(filePath), $"Garage does not exist at {filePath}");
             string fileContents = File.ReadAllText(filePath);

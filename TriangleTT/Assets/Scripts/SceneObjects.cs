@@ -12,7 +12,7 @@ namespace TriangleTT {
         public Collider _CheckpointCollider2;
         public static Collider CheckpointCollider3;
         public Collider _CheckpointCollider3;
-        public static GameObject PlaceholderCarObject;
+        public static GameObject PlaceholderCar;
         public GameObject _PlaceholderCarObject;
         public static Transform CameraAnglePivot;
         public Transform _CameraAnglePivot;
@@ -55,7 +55,7 @@ namespace TriangleTT {
             UnityNullExtensions.AssignIfNull(ref CheckpointCollider1, this._CheckpointCollider1);
             UnityNullExtensions.AssignIfNull(ref CheckpointCollider2, this._CheckpointCollider2);
             UnityNullExtensions.AssignIfNull(ref CheckpointCollider3, this._CheckpointCollider3);
-            UnityNullExtensions.AssignIfNull(ref PlaceholderCarObject, this._PlaceholderCarObject);
+            UnityNullExtensions.AssignIfNull(ref PlaceholderCar, this._PlaceholderCarObject);
             UnityNullExtensions.AssignIfNull(ref CameraAnglePivot, this._CameraAnglePivot);
             UnityNullExtensions.AssignIfNull(ref Sunlight, this._Sunlight);
 

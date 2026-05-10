@@ -6,7 +6,7 @@ namespace TriangleTT {
     [Serializable]
     public class Car {
         [SerializeField]
-        private string gameObjectName;
+        private string GameObjectName;
 
         public Dynamic Dynamic;
 
@@ -17,14 +17,12 @@ namespace TriangleTT {
         public Collider Collider;
 
         public void InitAfterCreateFromJson() {
-            Assert.IsTrue(!string.IsNullOrEmpty(this.gameObjectName));
-            GameObject gameObject = GameObject.Find(this.gameObjectName);
-            Assert.IsNotNull(gameObject);
+            Assert.IsTrue(!string.IsNullOrEmpty(this.GameObjectName));
+            GameObject decorativeGameObject = GameObject.Find(this.GameObjectName);
+            Assert.IsNotNull(decorativeGameObject);
 
-            // The input gameObject is supposed to be a fixed decoration.
-            // The actual gameObject that drives around is a copy.
-            this.GameObject = UnityEngine.Object.Instantiate(gameObject, Vector3.zero, Quaternion.identity);
-            this.GameObject.transform.SetFrom(SceneObjects.PlaceholderCarObject.transform);
+            this.GameObject = UnityEngine.Object.Instantiate(decorativeGameObject, Vector3.zero, Quaternion.identity);
+            this.GameObject.transform.SetFrom(SceneObjects.PlaceholderCar.transform);
             this.GameObject.SetActive(false);
 
             this.Collider = this.GameObject.GetComponentInChildren<Collider>();

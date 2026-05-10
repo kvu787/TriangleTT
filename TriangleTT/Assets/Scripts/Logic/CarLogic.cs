@@ -7,8 +7,8 @@ namespace TriangleTT {
         public static void Init() {
             CarState =
                 new CarState {
-                    Position = SceneObjects.PlaceholderCarObject.transform.position,
-                    Rotation = SceneObjects.PlaceholderCarObject.transform.rotation,
+                    Position = SceneObjects.PlaceholderCar.transform.position,
+                    Rotation = SceneObjects.PlaceholderCar.transform.rotation,
                     Velocity = Vector3.zero,
                 };
         }
