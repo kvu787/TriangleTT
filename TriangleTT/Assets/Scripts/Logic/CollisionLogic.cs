@@ -5,14 +5,14 @@ using UnityEngine.Assertions;
 
 namespace TriangleTT {
     public static class CollisionLogic {
-        private static IEnumerable<Collider> Colliders;
+        private static IEnumerable<Collider> NonCarColliders;
 
         public static void Init() {
-            List<GameObject> gameObjects = new();
-            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Barrier.ToString()));
-            gameObjects.AddRange(GameObject.FindGameObjectsWithTag(Tag.Cone.ToString()));
-            Colliders = gameObjects.Select(x => x.GetComponent<Collider>());
-            Assert.IsFalse(Colliders.Any(x => x == null));
+            List<GameObject> barriersAndCones = new();
+            barriersAndCones.AddRange(GameObject.FindGameObjectsWithTag(Tag.Barrier.ToString()));
+            barriersAndCones.AddRange(GameObject.FindGameObjectsWithTag(Tag.Cone.ToString()));
+            NonCarColliders = barriersAndCones.Select(x => x.GetComponent<Collider>());
+            Assert.IsFalse(NonCarColliders.Any(x => x == null));
         }
 
         public static bool HasCollided(Collider a, Collider b) {
@@ -28,7 +28,7 @@ namespace TriangleTT {
         }
 
         public static bool HasCarCollided() {
-            foreach (Collider collider in Colliders) {
+            foreach (Collider collider in NonCarColliders) {
                 if (HasCollided(CarSwitcher.CurrentCar.Collider, collider)) {
                     return true;
                 }
