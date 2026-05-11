@@ -27,7 +27,7 @@ namespace TriangleTT {
                 out _, out _);
         }
 
-        public static bool HasCarCollided() {
+        public static bool IsCarColliding() {
             foreach (Collider collider in NonCarColliders) {
                 if (HasCollided(CarSwitcher.CurrentCar.Collider, collider)) {
                     return true;

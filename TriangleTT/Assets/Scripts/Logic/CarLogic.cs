@@ -13,7 +13,7 @@ namespace TriangleTT {
                 };
         }
 
-        public static void ProcessCarInputAndPhysics() {
+        public static void ReadInputAndUpdateCarState() {
             Dynamic dynamic = CarSwitcher.CurrentCar.Dynamic;
             if (Input.Brake == 0) {
                 if (Input.Accel.magnitude > 0) {

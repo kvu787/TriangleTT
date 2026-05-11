@@ -23,7 +23,7 @@ namespace TriangleTT {
             CurrentCar.GameObject.SetActive(true);
         }
 
-        public static bool ProcessCarSwitch() {
+        public static bool ReadInputAndSwitchCar() {
             if (!Input.NextCarEvent && !Input.PrevCarEvent) {
                 return false;
             }

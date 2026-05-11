@@ -61,13 +61,13 @@ namespace TriangleTT {
             LapTimer.UpdateLapTimesUi();
             CarResetter.UpdateTimeout();
 
-            bool wasCarSwitched = CarSwitcher.ProcessCarSwitch();
-            bool didCarCollide = CollisionLogic.HasCarCollided();
-            bool shouldResetCar = wasCarSwitched || didCarCollide || Input.ResetCarEvent;
+            bool receivedCarSwitch = CarSwitcher.ReadInputAndSwitchCar();
+            bool isCarColliding = CollisionLogic.IsCarColliding();
+            bool receivedResetCar = receivedCarSwitch || isCarColliding || Input.ResetCarEvent;
             if (!CarResetter.IsTimedOut) {
-                CarLogic.ProcessCarInputAndPhysics();
+                CarLogic.ReadInputAndUpdateCarState();
             }
-            if (shouldResetCar) {
+            if (receivedResetCar) {
                 CarResetter.ResetCar();
             }
             CarLogic.WriteCarStateToCarObject();
